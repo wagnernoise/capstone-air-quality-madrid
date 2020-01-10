@@ -1,2 +1,2 @@
-# capstone-air-quality-madrid
-Analysis of the air quality in Madrid using the historical series, from 2001 to 2018
+# Air quality in Madrid - From 2001 to 2018
+Air pollution in the big metropoles around the world is one of the big concerns nowadays, since we can observe the negative effects of the pollutants in health and climate. Therefore, a control of the particles and gases with high potential to be harmful to our environment is needed. For that matter, Madrid is one of Europe's big capitals and has a series of air quality control stations distributed around the city, which can provide us a nice piece of information (and lots of data) about the pollutants presented at the Spanish capital.
