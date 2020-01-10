@@ -10,7 +10,7 @@ Air pollution in the big metropoles around the world is one of the big concerns 
 
 Recently, Madrid has launch the campaing "Madrid Central" in 2018, [Wikipedia](https://en.wikipedia.org/wiki/Madrid_Central), which determine what type of vehicles are permitted to traffic in the capital's main area, depending on the year of the vehicle, motorization and so on. For instance, Madrid expect to reduce the pollution on Central area significantly. Hopefully, in this Capstone project, we will be able to predict if the ongoing trend is already a decline on pollutants or, worst case scenario, an increasing of pollutant in the spanish capital.
 
-All the data sets were collected from [Kaggle](https://www.kaggle.com/decide-soluciones/air-quality-madrid) 
+All the data sets were collected from [Kaggle](https://www.kaggle.com/decide-soluciones/air-quality-madrid). 
 
 # Loading the necessary libraries
 ```{r}
