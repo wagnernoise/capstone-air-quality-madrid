@@ -283,3 +283,66 @@ model.ses.ts %>%
   scale_y_continuous(breaks = seq(0,250,50), lim = c(0,250))
 
 #Holt's trend model
+#Making predictions for the next 36 months
+model.holt.ts <- holt(monthly.ts, h=36)
+summary(model.holt.ts)
+
+#Plotting the predictions
+model.holt.ts %>%
+  autoplot() + 
+  theme(axis.text.x = element_text(angle = 0),
+        panel.background = element_rect(fill = "gray94", colour = "white",
+                                        size = 0.5, linetype = "solid"),
+        legend.background = element_rect(fill = "gray94"),
+        plot.background = element_rect(fill = "gray94"),
+        panel.grid.major = element_line(size = 0.5, linetype = 'solid', colour = "white"), 
+        panel.grid.minor = element_line(size = 0.25, linetype = 'solid', colour = "white"),  
+        plot.title = element_text(hjust = 0, face = 'bold',color = 'black')) +
+  labs(x = '', y = 'Total Polution (??g/m³)', title='Forecasting of Air Quality using Holt\'s trend', subtitle='Indicators: NO2, O3, PM10, SO2, CO, PM25') +
+  scale_y_continuous(breaks = seq(0,250,50), lim = c(0,250))
+
+#Autoregressive Integrated Moving Average (ARIMA) model
+#Making predictions for the next 36 months
+model.arima.ts <- auto.arima(monthly.ts)
+summary(model.arima.ts)
+
+#Plotting the predictions
+model.arima.ts %>%
+  forecast(h=36) %>%
+  autoplot() + 
+  theme(axis.text.x = element_text(angle = 0),
+        panel.background = element_rect(fill = "gray94", colour = "white",
+                                        size = 0.5, linetype = "solid"),
+        legend.background = element_rect(fill = "gray94"),
+        plot.background = element_rect(fill = "gray94"),
+        panel.grid.major = element_line(size = 0.5, linetype = 'solid', colour = "white"), 
+        panel.grid.minor = element_line(size = 0.25, linetype = 'solid', colour = "white"),  
+        plot.title = element_text(hjust = 0, face = 'bold',color = 'black')) +
+  labs(x = '', y = 'Total Polution (??g/m³)', title='Forecasting of Air Quality using ARIMA', subtitle='Indicators: NO2, O3, PM10, SO2, CO, PM25') +
+  scale_y_continuous(breaks = seq(0,250,50), lim = c(0,250))
+
+#TBATS model
+# T: Trigonometric terms for seasonality  
+# B: Box-Cox transformations for heterogeneity  
+# A: Autoregressive Moving Average (ARMA) errors for short-term dynamics  
+# T: Trend  
+# S: Seasonal (including multiple and non-integer periods)  
+
+#Making predictions for the next 36 months
+model.tbats.ts <- tbats(monthly.ts)
+summary(model.tbats.ts)
+
+#Plotting the predictions
+model.arima.ts %>%
+  forecast(h=36) %>%
+  autoplot() + 
+  theme(axis.text.x = element_text(angle = 0),
+        panel.background = element_rect(fill = "gray94", colour = "white",
+                                        size = 0.5, linetype = "solid"),
+        legend.background = element_rect(fill = "gray94"),
+        plot.background = element_rect(fill = "gray94"),
+        panel.grid.major = element_line(size = 0.5, linetype = 'solid', colour = "white"), 
+        panel.grid.minor = element_line(size = 0.25, linetype = 'solid', colour = "white"),  
+        plot.title = element_text(hjust = 0, face = 'bold',color = 'black')) +
+  labs(x = '', y = 'Total Polution (??g/m³)', title='Forecasting of Air Quality using TBATS', subtitle='Indicators: NO2, O3, PM10, SO2, CO, PM25') +
+  scale_y_continuous(breaks = seq(0,250,50), lim = c(0,250))

@@ -432,6 +432,7 @@ In this case, we need to use the "forecast" funtion passing the number of months
 #Making predictions for the next 36 months
 model.tbats.ts <- tbats(monthly.ts)
 summary(model.tbats.ts)
+
 #Plotting the predictions
 model.arima.ts %>%
   forecast(h=36) %>%
