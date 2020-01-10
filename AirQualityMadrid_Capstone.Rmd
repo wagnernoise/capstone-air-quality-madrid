@@ -16,15 +16,13 @@ All the data sets were collected from [Kaggle](https://www.kaggle.com/decide-sol
 ```{r}
 #Loading the necessary libraries
 if(!require(tidyverse)) install.packages("tidyverse", repos = "http://cran.us.r-project.org")
-if(!require(caret)) install.packages("caret", repos = "http://cran.us.r-project.org")
-if(!require(data.table)) install.packages("data.table", repos = "http://cran.us.r-project.org")
 if(!require(lubridate)) install.packages("lubridate", repos = "http://cran.us.r-project.org")
 if(!require(forecast)) install.packages("forecast", repos = "http://cran.us.r-project.org")
 ```
 Now let's load the CSV files
 ```{r}
 #Setting the right directory path and importing csv files
-setwd("~/Library/Mobile Documents/com~apple~CloudDocs/Data Science/RProjetcs/Capstone Project/air-quality-madrid")
+setwd("C:/Users/DeOliW19830/Documents/RProjects/air-quality-madrid/air-quality-madrid")
 stations.code <- read.csv("stations.csv", sep = ",")
 ```
 
@@ -38,7 +36,7 @@ glimpse(stations.code)
 
 #Assigning the list of csv files to a variable
 files <- list.files(
-  path = "./csvs_per_year",
+  path = "C:/Users/DeOliW19830/Documents/RProjects/air-quality-madrid/air-quality-madrid/csvs_per_year",
   pattern = "*.csv", 
   full.names = T)
 
@@ -46,7 +44,7 @@ files <- list.files(
 madrid.airquality <- sapply(files, read_csv, simplify=FALSE) %>% bind_rows
 
 ```
-Looking into the file data frame format
+Looking into the file data frame format.
 
 ```{r}
 str(madrid.airquality, give.attr=F)
@@ -340,7 +338,7 @@ madrid.monthly %>%
 As one can observe, through all the years it seems that during the months of summer, approximately from May to September, the levels of pollutants are higher than at the rest of the year, with a peak around July. These are the months where the rain ocurrance is poor compared to the other periods of the year, therefore the dry weather can contribute to this behavior.
 
 # Making predictions - modelling algorithms
-## Simple exponential smooth
+## Simple exponential smooth (SES)
 For our first model, we are going to use Exponential Smoothing method, which is an extension of the naive method, wherein the forecasts are produced using weighted averages of past observations, with the weights decaying exponentially as the observations get older. In simple words, higher weights are given to the more recent observations and vice versa. The value of the smoothing parameter for the level is decided by the parameter 'alpha'.
 
 In order to make predictions, we are goind to use the library forecast, which has all the functions needed.
@@ -354,6 +352,7 @@ monthly.ts <- ts(madrid.monthly[,10],start=c(2001,1), end=c(2018,5), frequency =
 
 #Making predictions for the next 36 months
 model.ses.ts <- ses(monthly.ts, h=36)
+summary(model.ses.ts)
 
 #Plotting the predictions
 model.ses.ts %>%
@@ -366,7 +365,7 @@ model.ses.ts %>%
         panel.grid.major = element_line(size = 0.5, linetype = 'solid', colour = "white"), 
         panel.grid.minor = element_line(size = 0.25, linetype = 'solid', colour = "white"),  
         plot.title = element_text(hjust = 0, face = 'bold',color = 'black')) +
-  labs(x = '', y = 'Total Polution (μg/m³)', title='Forecasting of Air Quality using ARIMA', subtitle='Indicators: NO2, O3, PM10, SO2, CO, PM25') +
+  labs(x = '', y = 'Total Polution (μg/m³)', title='Forecasting of Air Quality using SES', subtitle='Indicators: NO2, O3, PM10, SO2, CO, PM25') +
   scale_y_continuous(breaks = seq(0,250,50), lim = c(0,250))
 ```
 
@@ -375,7 +374,7 @@ This is an extension of the simple exponential smoothing method which considers 
 ```{r}
 #Making predictions for the next 36 months
 model.holt.ts <- holt(monthly.ts, h=36)
-model.holt.ts
+summary(model.holt.ts)
 
 #Plotting the predictions
 model.holt.ts %>%
@@ -388,7 +387,7 @@ model.holt.ts %>%
         panel.grid.major = element_line(size = 0.5, linetype = 'solid', colour = "white"), 
         panel.grid.minor = element_line(size = 0.25, linetype = 'solid', colour = "white"),  
         plot.title = element_text(hjust = 0, face = 'bold',color = 'black')) +
-  labs(x = '', y = 'Total Polution (μg/m³)', title='Forecasting of Air Quality using ARIMA', subtitle='Indicators: NO2, O3, PM10, SO2, CO, PM25') +
+  labs(x = '', y = 'Total Polution (μg/m³)', title='Forecasting of Air Quality using Holt\'s trend', subtitle='Indicators: NO2, O3, PM10, SO2, CO, PM25') +
   scale_y_continuous(breaks = seq(0,250,50), lim = c(0,250))
 ```
 
@@ -397,6 +396,7 @@ Autoregressive Integrated Moving Average, aka ARIMA, as the data set seems to ha
 ```{r}
 #Making predictions for the next 36 months
 model.arima.ts <- auto.arima(monthly.ts)
+summary(model.arima.ts)
 
 #Plotting the predictions
 model.arima.ts %>%
@@ -429,7 +429,7 @@ In this case, we need to use the "forecast" funtion passing the number of months
 ```{r}
 #Making predictions for the next 36 months
 model.tbats.ts <- tbats(monthly.ts)
-
+summary(model.tbats.ts)
 #Plotting the predictions
 model.arima.ts %>%
   forecast(h=36) %>%
@@ -442,8 +442,11 @@ model.arima.ts %>%
         panel.grid.major = element_line(size = 0.5, linetype = 'solid', colour = "white"), 
         panel.grid.minor = element_line(size = 0.25, linetype = 'solid', colour = "white"),  
         plot.title = element_text(hjust = 0, face = 'bold',color = 'black')) +
-  labs(x = '', y = 'Total Polution (μg/m³)', title='Forecasting of Air Quality using ARIMA', subtitle='Indicators: NO2, O3, PM10, SO2, CO, PM25') +
+  labs(x = '', y = 'Total Polution (μg/m³)', title='Forecasting of Air Quality using TBATS', subtitle='Indicators: NO2, O3, PM10, SO2, CO, PM25') +
   scale_y_continuous(breaks = seq(0,250,50), lim = c(0,250))
 ```
 
 # Conclusions
+In summary, the analysis of the evolution of air quality in Madrid shows that the number of total pollutant are decreasing overall. We can also see in the time series, the seasonal effects that pumps the levels of pollutants up during the summer months, which are the months with lowest [average rainfall rates](https://www.holiday-weather.com/madrid/averages/). In this brief analysis we only select 6 pollutants as being ones of the most important among them, nevertheless a broader comparison should be done in order to have an overall picture of the air quality in Madrid.
+From our models, we were able to note that the ARIMA and TBATS algorythms performs the best in the lowest RMSE's (around 11).
+Furthermore, as a future work, an analysis of the air quality as a function of the stations should be done. Such task can provide information of what part of Madrid is the less or more polluted, giving the total pollutant values.
