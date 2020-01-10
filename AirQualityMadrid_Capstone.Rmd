@@ -190,7 +190,7 @@ madrid.daily %>%
           plot.title = element_text(hjust = 0, face = 'bold',color = 'black')) +
     labs(x = '', 
          y = 'Total Pollutants (μg/m³)',
-         itle='Air Quality in Madrid', 
+         title='Daily Average of Air Quality in Madrid', 
          subtitle='Indicators: NO2, O3, PM10, SO2, CO, PM25') +
     theme(axis.text.y =element_text(angle = 0,
                                     size = 8),
@@ -235,7 +235,7 @@ madrid.monthly %>%
           plot.title = element_text(hjust = 0, face = 'bold',color = 'black')) +
     labs(x = '', 
          y = 'Total Pollutants (μg/m³)',
-         itle='Air Quality in Madrid', 
+         title='Monthly Average of Air Quality in Madrid',
          subtitle='Indicators: NO2, O3, PM10, SO2, CO, PM25') +
     theme(axis.text.y =element_text(angle = 0,
                                     size = 8),
@@ -247,14 +247,96 @@ madrid.monthly %>%
                  date_labels = "%b-%y") +
     scale_y_continuous(breaks = seq(0,250,50), lim = c(0,250))
 ```
-This time series looks like a smooth out curve compared with the daily averages, as expected.
+This time series looks like a smooth out curve compared with the daily averages, as expected. In this plot, we can observe the presence of some peaks, which appear with certain frequency. This can be an indication of seasonal effects in the total concentration of pollutants.
 
-I need:
-clean na's
-set date in right format
-look at whole pollutants through the years
-see how selected pollutants evolved through the years
-see how (during  a year) the concentration of pollutants vary (seasonal effects) - find patterns
-look how the pollutants vary from station to station
-split the data set into train/test/validation
-check arima, anova and random forest approximations
+Let's look at the yearly moving average
+
+```{r}
+#Yearly variation
+madrid.yearly <- madrid.airquality %>%
+  select(year, station, NO_2, O_3, PM10, SO_2, CO, PM25) %>%
+  group_by(year) %>%
+  summarise(NO_2.mean = mean(NO_2, na.rm = T),
+            O_3.mean = mean(O_3, na.rm = T),
+            PM10.mean = mean(PM10, na.rm = T),
+            SO_2.mean = mean(SO_2, na.rm = T),
+            CO.mean = mean(CO, na.rm = T),
+            PM25.mean = mean(PM25, na.rm = T))
+
+#Getting the total pollutant  
+madrid.yearly$tot_poll_year <- rowSums(madrid.yearly[,2:7], na.rm = T)# this selects only the columns with the averages. In order to check it out, uncomment the next code line:  
+#str(madrid.yearly)
+
+#Plottind the data frame
+madrid.yearly %>%
+  ggplot(aes(year, tot_poll_year, group = 1)) + 
+    geom_point(aes(year, tot_poll_year), size = 2, color = 'darkblue') + 
+    geom_line(size = 3, alpha = 0.5, color = 'blue') +
+    theme(legend.position = "none",
+        panel.background = element_rect(fill = "gray94", 
+                                        colour = "white",
+                                        size = 0.5, 
+                                        linetype = "solid"),
+        legend.background = element_rect(fill = "gray94"),
+        plot.background = element_rect(fill = "gray94"),
+        panel.grid.major = element_line(size = 0.5, 
+                                        linetype = 'solid', 
+                                        colour = "white"), 
+        panel.grid.minor = element_line(size = 0.25, 
+                                        linetype = 'solid', 
+                                        colour = "white"),  
+        plot.title = element_text(hjust = 0, 
+                                  face = 'bold',
+                                  color = 'black')) +
+  labs(x = 'Month', 
+       y = 'Total Pollutants (μg/m³)', 
+       title='Yearly Average of Air Quality in Madrid', 
+       subtitle='Indicators: NO2, O3, PM10, SO2, CO, PM25') +
+  theme(axis.text.y =element_text(angle = 0,
+                                    size = 8),
+          axis.text.x=element_text(angle = 90, 
+                                   size = 8))
+```
+After looking into the yearly moving average, we can notice a reduction tendency on the total number of pollutants.
+
+To look for seasonal effects, we have to evaluate how the pollutants vary during the year.
+```{r}
+monthly <- c("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
+
+madrid.monthly %>%
+  group_by(month) %>%
+  mutate(poll_mean = mean(tot_poll_mon)) %>%
+  ggplot(aes(month, poll_mean, group = 1)) + 
+    geom_point(aes(month, tot_poll_mon), size = 2, color = 'darkblue') + 
+    geom_line(size = 1.5, alpha = 0.5, color = 'blue') +
+    scale_x_discrete(labels = monthly) +
+    theme(legend.position = "none",
+        panel.background = element_rect(fill = "gray94", 
+                                        colour = "white",
+                                        size = 0.5, 
+                                        linetype = "solid"),
+        legend.background = element_rect(fill = "gray94"),
+        plot.background = element_rect(fill = "gray94"),
+        panel.grid.major = element_line(size = 0.5, 
+                                        linetype = 'solid', 
+                                        colour = "white"), 
+        panel.grid.minor = element_line(size = 0.25, 
+                                        linetype = 'solid', 
+                                        colour = "white"),  
+        plot.title = element_text(hjust = 0, 
+                                  face = 'bold',
+                                  color = 'black')) +
+  labs(x = 'Month', 
+       y = 'Total Polution (μg/m³)', 
+       title='Monthly Average of Air Quality in Madrid', 
+       subtitle='Indicators: NO2, O3, PM10, SO2, CO, PM25') +
+  theme(axis.text.y = element_text(size = 8),
+        axis.text.x=element_text(
+          angle = 90,
+          size = 8)) +
+   facet_wrap(~year)
+```
+
+As one can observe, through all the years it seems that during the months of summer, approximately from May to September, the levels of pollutants are higher than at the rest of the year, with a peak around July. These are the months where the rain ocurrance is poor compared to the other periods of the year, therefore the dry weather can contribute to this behavior.
+
+# Making predictions - modelling algorithms
