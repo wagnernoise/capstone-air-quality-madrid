@@ -1,0 +1,1502 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Air quality in Madrid (Spain) - From 2001 to 2018},
+  pdfauthor={Wagner Rosa},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+
+\title{Air quality in Madrid (Spain) - From 2001 to 2018}
+\author{Wagner Rosa}
+\date{}
+
+\begin{document}
+\maketitle
+
+\hypertarget{introduction}{%
+\section{Introduction}\label{introduction}}
+
+Air pollution in the big metropoles around the world is one of the big
+concerns nowadays, since we can observe the negative effects of the
+pollutants in health and climate. Therefore, a control of the particles
+and gases with high potential to be harmful to our environment is
+needed. For that matter, Madrid is one of Europe's big capitals and has
+a series of air quality control stations distributed around the city,
+which can provide us a nice piece of information (and lots of data)
+about the pollutants presented at the Spanish capital. As a spanish
+myself and have lived in Madrid for many years, this topic is of very
+importance personally.
+
+Recently, Madrid has launch the campaing ``Madrid Central'' in 2018,
+\href{https://en.wikipedia.org/wiki/Madrid_Central}{Wikipedia}, which
+determine what type of vehicles are permitted to traffic in the
+capital's main area, depending on the year of the vehicle, motorization
+and so on. For instance, Madrid expect to reduce the pollution on
+Central area significantly. Hopefully, in this Capstone project, we will
+be able to predict if the ongoing trend is already a decline on
+pollutants or, worst case scenario, an increasing of pollutant in the
+spanish capital.
+
+All the data sets were collected from
+\href{https://www.kaggle.com/decide-soluciones/air-quality-madrid}{Kaggle}
+
+\hypertarget{loading-the-necessary-libraries}{%
+\section{Loading the necessary
+libraries}\label{loading-the-necessary-libraries}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#Loading the necessary libraries}
+\ControlFlowTok{if}\NormalTok{(}\OperatorTok{!}\KeywordTok{require}\NormalTok{(tidyverse)) }\KeywordTok{install.packages}\NormalTok{(}\StringTok{"tidyverse"}\NormalTok{, }\DataTypeTok{repos =} \StringTok{"http://cran.us.r-project.org"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: tidyverse
+\end{verbatim}
+
+\begin{verbatim}
+## -- Attaching packages ------------------------------------------------------------ tidyverse 1.3.0 --
+\end{verbatim}
+
+\begin{verbatim}
+## <U+2713> ggplot2 3.2.1     <U+2713> purrr   0.3.3
+## <U+2713> tibble  2.1.3     <U+2713> dplyr   0.8.3
+## <U+2713> tidyr   1.0.0     <U+2713> stringr 1.4.0
+## <U+2713> readr   1.3.1     <U+2713> forcats 0.4.0
+\end{verbatim}
+
+\begin{verbatim}
+## -- Conflicts --------------------------------------------------------------- tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{if}\NormalTok{(}\OperatorTok{!}\KeywordTok{require}\NormalTok{(lubridate)) }\KeywordTok{install.packages}\NormalTok{(}\StringTok{"lubridate"}\NormalTok{, }\DataTypeTok{repos =} \StringTok{"http://cran.us.r-project.org"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: lubridate
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'lubridate'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:base':
+## 
+##     date
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{if}\NormalTok{(}\OperatorTok{!}\KeywordTok{require}\NormalTok{(forecast)) }\KeywordTok{install.packages}\NormalTok{(}\StringTok{"forecast"}\NormalTok{, }\DataTypeTok{repos =} \StringTok{"http://cran.us.r-project.org"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: forecast
+\end{verbatim}
+
+\begin{verbatim}
+## Registered S3 method overwritten by 'xts':
+##   method     from
+##   as.zoo.xts zoo
+\end{verbatim}
+
+\begin{verbatim}
+## Registered S3 method overwritten by 'quantmod':
+##   method            from
+##   as.zoo.data.frame zoo
+\end{verbatim}
+
+\begin{verbatim}
+## Registered S3 methods overwritten by 'forecast':
+##   method             from    
+##   fitted.fracdiff    fracdiff
+##   residuals.fracdiff fracdiff
+\end{verbatim}
+
+Now let's load the CSV files
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#Setting the right directory path and importing csv files}
+\KeywordTok{setwd}\NormalTok{(}\StringTok{"C:/Users/DeOliW19830/Documents/RProjects/air-quality-madrid/air-quality-madrid"}\NormalTok{)}
+\NormalTok{stations.code <-}\StringTok{ }\KeywordTok{read.csv}\NormalTok{(}\StringTok{"stations.csv"}\NormalTok{, }\DataTypeTok{sep =} \StringTok{","}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{exploratory-data-analysis-eda}{%
+\section{Exploratory data analysis
+(EDA)}\label{exploratory-data-analysis-eda}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{glimpse}\NormalTok{(stations.code)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Observations: 24
+## Variables: 6
+## $ id        <int> 28079004, 28079008, 28079011, 28079016, 28079017, 28079018,…
+## $ name      <fct> Pza. de EspaÃ±a, Escuelas Aguirre, Avda. RamÃ³n y Cajal, Ar…
+## $ address   <fct> "Plaza de EspaÃ±a", "Entre C/ AlcalÃ¡ y C/ Oâ\200\231 Donel…
+## $ lon       <dbl> -3.712247, -3.682319, -3.677356, -3.639233, -3.713322, -3.7…
+## $ lat       <dbl> 40.42385, 40.42156, 40.45148, 40.44005, 40.34714, 40.39478,…
+## $ elevation <int> 635, 670, 708, 693, 604, 630, 642, 621, 659, 685, 698, 674,…
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#Assigning the list of csv files to a variable}
+\NormalTok{files <-}\StringTok{ }\KeywordTok{list.files}\NormalTok{(}
+  \DataTypeTok{path =} \StringTok{"C:/Users/DeOliW19830/Documents/RProjects/air-quality-madrid/air-quality-madrid/csvs_per_year"}\NormalTok{,}
+  \DataTypeTok{pattern =} \StringTok{"*.csv"}\NormalTok{, }
+  \DataTypeTok{full.names =}\NormalTok{ T)}
+
+\CommentTok{#Looping through the files and joining all the data sets to a single data frame}
+\NormalTok{madrid.airquality <-}\StringTok{ }\KeywordTok{sapply}\NormalTok{(files, read_csv, }\DataTypeTok{simplify=}\OtherTok{FALSE}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }\NormalTok{bind_rows}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Parsed with column specification:
+## cols(
+##   date = col_datetime(format = ""),
+##   BEN = col_double(),
+##   CO = col_double(),
+##   EBE = col_double(),
+##   MXY = col_double(),
+##   NMHC = col_double(),
+##   NO_2 = col_double(),
+##   NOx = col_double(),
+##   OXY = col_double(),
+##   O_3 = col_double(),
+##   PM10 = col_double(),
+##   PXY = col_double(),
+##   SO_2 = col_double(),
+##   TCH = col_double(),
+##   TOL = col_double(),
+##   station = col_double()
+## )
+## Parsed with column specification:
+## cols(
+##   date = col_datetime(format = ""),
+##   BEN = col_double(),
+##   CO = col_double(),
+##   EBE = col_double(),
+##   MXY = col_double(),
+##   NMHC = col_double(),
+##   NO_2 = col_double(),
+##   NOx = col_double(),
+##   OXY = col_double(),
+##   O_3 = col_double(),
+##   PM10 = col_double(),
+##   PXY = col_double(),
+##   SO_2 = col_double(),
+##   TCH = col_double(),
+##   TOL = col_double(),
+##   station = col_double()
+## )
+## Parsed with column specification:
+## cols(
+##   date = col_datetime(format = ""),
+##   BEN = col_double(),
+##   CO = col_double(),
+##   EBE = col_double(),
+##   MXY = col_double(),
+##   NMHC = col_double(),
+##   NO_2 = col_double(),
+##   NOx = col_double(),
+##   OXY = col_double(),
+##   O_3 = col_double(),
+##   PM10 = col_double(),
+##   PXY = col_double(),
+##   SO_2 = col_double(),
+##   TCH = col_double(),
+##   TOL = col_double(),
+##   station = col_double()
+## )
+\end{verbatim}
+
+\begin{verbatim}
+## Parsed with column specification:
+## cols(
+##   date = col_datetime(format = ""),
+##   BEN = col_double(),
+##   CO = col_double(),
+##   EBE = col_double(),
+##   MXY = col_double(),
+##   NMHC = col_double(),
+##   NO_2 = col_double(),
+##   NOx = col_double(),
+##   OXY = col_double(),
+##   O_3 = col_double(),
+##   PM10 = col_double(),
+##   PM25 = col_double(),
+##   PXY = col_double(),
+##   SO_2 = col_double(),
+##   TCH = col_double(),
+##   TOL = col_double(),
+##   station = col_double()
+## )
+## Parsed with column specification:
+## cols(
+##   date = col_datetime(format = ""),
+##   BEN = col_double(),
+##   CO = col_double(),
+##   EBE = col_double(),
+##   MXY = col_double(),
+##   NMHC = col_double(),
+##   NO_2 = col_double(),
+##   NOx = col_double(),
+##   OXY = col_double(),
+##   O_3 = col_double(),
+##   PM10 = col_double(),
+##   PM25 = col_double(),
+##   PXY = col_double(),
+##   SO_2 = col_double(),
+##   TCH = col_double(),
+##   TOL = col_double(),
+##   station = col_double()
+## )
+## Parsed with column specification:
+## cols(
+##   date = col_datetime(format = ""),
+##   BEN = col_double(),
+##   CO = col_double(),
+##   EBE = col_double(),
+##   MXY = col_double(),
+##   NMHC = col_double(),
+##   NO_2 = col_double(),
+##   NOx = col_double(),
+##   OXY = col_double(),
+##   O_3 = col_double(),
+##   PM10 = col_double(),
+##   PM25 = col_double(),
+##   PXY = col_double(),
+##   SO_2 = col_double(),
+##   TCH = col_double(),
+##   TOL = col_double(),
+##   station = col_double()
+## )
+## Parsed with column specification:
+## cols(
+##   date = col_datetime(format = ""),
+##   BEN = col_double(),
+##   CO = col_double(),
+##   EBE = col_double(),
+##   MXY = col_double(),
+##   NMHC = col_double(),
+##   NO_2 = col_double(),
+##   NOx = col_double(),
+##   OXY = col_double(),
+##   O_3 = col_double(),
+##   PM10 = col_double(),
+##   PM25 = col_double(),
+##   PXY = col_double(),
+##   SO_2 = col_double(),
+##   TCH = col_double(),
+##   TOL = col_double(),
+##   station = col_double()
+## )
+## Parsed with column specification:
+## cols(
+##   date = col_datetime(format = ""),
+##   BEN = col_double(),
+##   CO = col_double(),
+##   EBE = col_double(),
+##   MXY = col_double(),
+##   NMHC = col_double(),
+##   NO_2 = col_double(),
+##   NOx = col_double(),
+##   OXY = col_double(),
+##   O_3 = col_double(),
+##   PM10 = col_double(),
+##   PM25 = col_double(),
+##   PXY = col_double(),
+##   SO_2 = col_double(),
+##   TCH = col_double(),
+##   TOL = col_double(),
+##   station = col_double()
+## )
+## Parsed with column specification:
+## cols(
+##   date = col_datetime(format = ""),
+##   BEN = col_double(),
+##   CO = col_double(),
+##   EBE = col_double(),
+##   MXY = col_double(),
+##   NMHC = col_double(),
+##   NO_2 = col_double(),
+##   NOx = col_double(),
+##   OXY = col_double(),
+##   O_3 = col_double(),
+##   PM10 = col_double(),
+##   PM25 = col_double(),
+##   PXY = col_double(),
+##   SO_2 = col_double(),
+##   TCH = col_double(),
+##   TOL = col_double(),
+##   station = col_double()
+## )
+## Parsed with column specification:
+## cols(
+##   date = col_datetime(format = ""),
+##   BEN = col_double(),
+##   CO = col_double(),
+##   EBE = col_double(),
+##   MXY = col_double(),
+##   NMHC = col_double(),
+##   NO_2 = col_double(),
+##   NOx = col_double(),
+##   OXY = col_double(),
+##   O_3 = col_double(),
+##   PM10 = col_double(),
+##   PM25 = col_double(),
+##   PXY = col_double(),
+##   SO_2 = col_double(),
+##   TCH = col_double(),
+##   TOL = col_double(),
+##   station = col_double()
+## )
+\end{verbatim}
+
+\begin{verbatim}
+## Parsed with column specification:
+## cols(
+##   date = col_datetime(format = ""),
+##   BEN = col_double(),
+##   CO = col_double(),
+##   EBE = col_double(),
+##   NMHC = col_double(),
+##   NO = col_double(),
+##   NO_2 = col_double(),
+##   O_3 = col_double(),
+##   PM10 = col_double(),
+##   PM25 = col_double(),
+##   SO_2 = col_double(),
+##   TCH = col_double(),
+##   TOL = col_double(),
+##   station = col_double()
+## )
+## Parsed with column specification:
+## cols(
+##   date = col_datetime(format = ""),
+##   BEN = col_double(),
+##   CO = col_double(),
+##   EBE = col_double(),
+##   NMHC = col_double(),
+##   NO = col_double(),
+##   NO_2 = col_double(),
+##   O_3 = col_double(),
+##   PM10 = col_double(),
+##   PM25 = col_double(),
+##   SO_2 = col_double(),
+##   TCH = col_double(),
+##   TOL = col_double(),
+##   station = col_double()
+## )
+## Parsed with column specification:
+## cols(
+##   date = col_datetime(format = ""),
+##   BEN = col_double(),
+##   CO = col_double(),
+##   EBE = col_double(),
+##   NMHC = col_double(),
+##   NO = col_double(),
+##   NO_2 = col_double(),
+##   O_3 = col_double(),
+##   PM10 = col_double(),
+##   PM25 = col_double(),
+##   SO_2 = col_double(),
+##   TCH = col_double(),
+##   TOL = col_double(),
+##   station = col_double()
+## )
+## Parsed with column specification:
+## cols(
+##   date = col_datetime(format = ""),
+##   BEN = col_double(),
+##   CO = col_double(),
+##   EBE = col_double(),
+##   NMHC = col_double(),
+##   NO = col_double(),
+##   NO_2 = col_double(),
+##   O_3 = col_double(),
+##   PM10 = col_double(),
+##   PM25 = col_double(),
+##   SO_2 = col_double(),
+##   TCH = col_double(),
+##   TOL = col_double(),
+##   station = col_double()
+## )
+## Parsed with column specification:
+## cols(
+##   date = col_datetime(format = ""),
+##   BEN = col_double(),
+##   CO = col_double(),
+##   EBE = col_double(),
+##   NMHC = col_double(),
+##   NO = col_double(),
+##   NO_2 = col_double(),
+##   O_3 = col_double(),
+##   PM10 = col_double(),
+##   PM25 = col_double(),
+##   SO_2 = col_double(),
+##   TCH = col_double(),
+##   TOL = col_double(),
+##   station = col_double()
+## )
+## Parsed with column specification:
+## cols(
+##   date = col_datetime(format = ""),
+##   BEN = col_double(),
+##   CO = col_double(),
+##   EBE = col_double(),
+##   NMHC = col_double(),
+##   NO = col_double(),
+##   NO_2 = col_double(),
+##   O_3 = col_double(),
+##   PM10 = col_double(),
+##   PM25 = col_double(),
+##   SO_2 = col_double(),
+##   TCH = col_double(),
+##   TOL = col_double(),
+##   station = col_double()
+## )
+\end{verbatim}
+
+\begin{verbatim}
+## Parsed with column specification:
+## cols(
+##   date = col_datetime(format = ""),
+##   BEN = col_double(),
+##   CH4 = col_logical(),
+##   CO = col_double(),
+##   EBE = col_double(),
+##   NMHC = col_double(),
+##   NO = col_double(),
+##   NO_2 = col_double(),
+##   NOx = col_logical(),
+##   O_3 = col_double(),
+##   PM10 = col_double(),
+##   PM25 = col_double(),
+##   SO_2 = col_double(),
+##   TCH = col_double(),
+##   TOL = col_double(),
+##   station = col_double()
+## )
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: 59228 parsing failures.
+##   row col           expected             actual                                                                                                           file
+## 87457 NOx 1/0/T/F/TRUE/FALSE 37.0               'C:/Users/DeOliW19830/Documents/RProjects/air-quality-madrid/air-quality-madrid/csvs_per_year/madrid_2017.csv'
+## 87458 CH4 1/0/T/F/TRUE/FALSE 1.2200000286102295 'C:/Users/DeOliW19830/Documents/RProjects/air-quality-madrid/air-quality-madrid/csvs_per_year/madrid_2017.csv'
+## 87458 NOx 1/0/T/F/TRUE/FALSE 60.0               'C:/Users/DeOliW19830/Documents/RProjects/air-quality-madrid/air-quality-madrid/csvs_per_year/madrid_2017.csv'
+## 87459 NOx 1/0/T/F/TRUE/FALSE 19.0               'C:/Users/DeOliW19830/Documents/RProjects/air-quality-madrid/air-quality-madrid/csvs_per_year/madrid_2017.csv'
+## 87460 NOx 1/0/T/F/TRUE/FALSE 43.0               'C:/Users/DeOliW19830/Documents/RProjects/air-quality-madrid/air-quality-madrid/csvs_per_year/madrid_2017.csv'
+## ..... ... .................. .................. ..............................................................................................................
+## See problems(...) for more details.
+\end{verbatim}
+
+\begin{verbatim}
+## Parsed with column specification:
+## cols(
+##   date = col_datetime(format = ""),
+##   BEN = col_double(),
+##   CH4 = col_double(),
+##   CO = col_double(),
+##   EBE = col_double(),
+##   NMHC = col_double(),
+##   NO = col_double(),
+##   NO_2 = col_double(),
+##   NOx = col_double(),
+##   O_3 = col_double(),
+##   PM10 = col_double(),
+##   PM25 = col_double(),
+##   SO_2 = col_double(),
+##   TCH = col_double(),
+##   TOL = col_double(),
+##   station = col_double()
+## )
+\end{verbatim}
+
+Looking into the file data frame format.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{str}\NormalTok{(madrid.airquality, }\DataTypeTok{give.attr=}\NormalTok{F)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Classes 'spec_tbl_df', 'tbl_df', 'tbl' and 'data.frame': 3808224 obs. of  19 variables:
+##  $ date   : POSIXct, format: "2001-08-01 01:00:00" "2001-08-01 01:00:00" ...
+##  $ BEN    : num  NA 1.5 NA NA NA ...
+##  $ CO     : num  0.37 0.34 0.28 0.47 0.39 ...
+##  $ EBE    : num  NA 1.49 NA NA NA ...
+##  $ MXY    : num  NA 4.1 NA NA NA ...
+##  $ NMHC   : num  NA 0.07 NA NA NA ...
+##  $ NO_2   : num  58.4 56.2 50.7 69.8 22.8 ...
+##  $ NOx    : num  87.2 75.2 61.4 73.4 24.8 ...
+##  $ OXY    : num  NA 2.11 NA NA NA ...
+##  $ O_3    : num  34.5 42.2 46.3 40.7 66.3 ...
+##  $ PM10   : num  105 100.6 100.1 69.8 75.2 ...
+##  $ PXY    : num  NA 1.73 NA NA NA ...
+##  $ SO_2   : num  6.34 8.11 7.85 6.46 8.8 ...
+##  $ TCH    : num  NA 1.24 NA NA NA ...
+##  $ TOL    : num  NA 10.8 NA NA NA ...
+##  $ station: num  28079001 28079035 28079003 28079004 28079039 ...
+##  $ PM25   : num  NA NA NA NA NA NA NA NA NA NA ...
+##  $ NO     : num  NA NA NA NA NA NA NA NA NA NA ...
+##  $ CH4    : num  NA NA NA NA NA NA NA NA NA NA ...
+\end{verbatim}
+
+Getting the names from the columns for each data frame.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{colnames}\NormalTok{(madrid.airquality) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] "date"    "BEN"     "CO"      "EBE"     "MXY"     "NMHC"    "NO_2"   
+##  [8] "NOx"     "OXY"     "O_3"     "PM10"    "PXY"     "SO_2"    "TCH"    
+## [15] "TOL"     "station" "PM25"    "NO"      "CH4"
+\end{verbatim}
+
+The names are related to the following measurements: - SO\_2: sulphur
+dioxide level measured in μg/m³. High levels of sulphur dioxide can
+produce irritation in the skin and membranes, and worsen asthma or heart
+diseases in sensitive groups.
+
+\begin{itemize}
+\item
+  CO: carbon monoxide level measured in mg/m³. Carbon monoxide poisoning
+  involves headaches, dizziness and confusion in short exposures and can
+  result in loss of consciousness, arrhythmias, seizures or even death
+  in the long term.
+\item
+  NO: nitric oxide level measured in μg/m³. This is a highly corrosive
+  gas generated among others by motor vehicles and fuel burning
+  processes.
+\item
+  NO\_2: nitrogen dioxide level measured in μg/m³. Long-term exposure is
+  a cause of chronic lung diseases, and are harmful for the vegetation.
+\end{itemize}
+
+PM25: particles smaller than 2.5 μm level measured in μg/m³. The size of
+these particles allow them to penetrate into the gas exchange regions of
+the lungs (alveolus) and even enter the arteries. Long-term exposure is
+proven to be related to low birth weight and high blood pressure in
+newborn babies.
+
+\begin{itemize}
+\item
+  PM10: particles smaller than 10 μm. Even though the cannot penetrate
+  the alveolus, they can still penetrate through the lungs and affect
+  other organs. Long term exposure can result in lung cancer and
+  cardiovascular complications.
+\item
+  NOx: nitrous oxides level measured in μg/m³. Affect the human
+  respiratory system worsening asthma or other diseases, and are
+  responsible of the yellowish-brown color of photochemical smog.
+\item
+  O\_3: ozone level measured in μg/m³. High levels can produce asthma,
+  bronchytis or other chronic pulmonary diseases in sensitive groups or
+  outdoor workers.
+\item
+  TOL: toluene (methylbenzene) level measured in μg/m³. Long-term
+  exposure to this substance (present in tobacco smkoke as well) can
+  result in kidney complications or permanent brain damage.
+\item
+  BEN: benzene level measured in μg/m³. Benzene is a eye and skin
+  irritant, and long exposures may result in several types of cancer,
+  leukaemia and anaemias. Benzene is considered a group 1 carcinogenic
+  to humans by the IARC.
+\item
+  EBE: ethylbenzene level measured in μg/m³. Long term exposure can
+  cause hearing or kidney problems and the IARC has concluded that
+  long-term exposure can produce cancer.
+\item
+  MXY: m-xylene level measured in μg/m³. Xylenes can affect not only air
+  but also water and soil, and a long exposure to high levels of xylenes
+  can result in diseases affecting the liver, kidney and nervous system
+  (especially memory and affected stimulus reaction).
+\item
+  PXY: p-xylene level measured in μg/m³. See MXY for xylene exposure
+  effects on health.
+\item
+  OXY: o-xylene level measured in μg/m³. See MXY for xylene exposure
+  effects on health.
+\item
+  TCH: total hydrocarbons level measured in mg/m³. This group of
+  substances can be responsible of different blood, immune system,
+  liver, spleen, kidneys or lung diseases.
+\item
+  CH4: methane level measured in mg/m³. This gas is an asphyxiant, which
+  displaces the oxygen animals need to breath. Displaced oxygen can
+  result in dizzinnes, weakness, nausea and loss of coordination.
+\item
+  NMHC: non-methane hydrocarbons (volatile organic compounds) level
+  measured in mg/m³. Long exposure to some of these substances can
+  result in damage to the liver, kidney, and central nervous system.
+  Some of them are suspected to cause cancer in humans.
+\end{itemize}
+
+As pointed in an article from
+\href{https://www.iberdrola.com/medio-ambiente/contaminacion-calidad-aire}{Iberdrola}
+- in spanish - the control standard is usally done measuring the levels
+of NO2, O3, CO, SO2. We are going to also look into PM10 and PM25, which
+are related to particles smaller than 10 adn 2.5 μm, respectively. This
+is because the long exposure to these particles can can result in lung
+cancer and cardiovascular complications (PM10); low birth weight and
+high blood pressure in newborn babies (PM25).
+
+Other reason to choose these level is because they are presented in all
+the data frames.
+
+Summary of the pollutant measurments through the years
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{summary}\NormalTok{(madrid.airquality) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##       date                          BEN                CO         
+##  Min.   :2001-01-01 01:00:00   Min.   : 0.0      Min.   : 0.0     
+##  1st Qu.:2005-02-10 19:00:00   1st Qu.: 0.2      1st Qu.: 0.3     
+##  Median :2009-04-11 17:00:00   Median : 0.6      Median : 0.4     
+##  Mean   :2009-06-21 04:25:17   Mean   : 1.3      Mean   : 0.6     
+##  3rd Qu.:2013-10-17 23:15:00   3rd Qu.: 1.5      3rd Qu.: 0.6     
+##  Max.   :2018-05-01 00:00:00   Max.   :66.4      Max.   :18.0     
+##                                NA's   :2766540   NA's   :1157212  
+##       EBE               MXY               NMHC              NO_2       
+##  Min.   :  0.0     Min.   :  0       Min.   :0.0       Min.   :  0.00  
+##  1st Qu.:  0.3     1st Qu.:  1       1st Qu.:0.1       1st Qu.: 24.00  
+##  Median :  0.9     Median :  3       Median :0.2       Median : 44.00  
+##  Mean   :  1.4     Mean   :  5       Mean   :0.2       Mean   : 50.47  
+##  3rd Qu.:  1.6     3rd Qu.:  6       3rd Qu.:0.2       3rd Qu.: 69.58  
+##  Max.   :162.2     Max.   :178       Max.   :9.1       Max.   :628.60  
+##  NA's   :2806500   NA's   :3492809   NA's   :2722912   NA's   :21174   
+##       NOx               OXY               O_3              PM10       
+##  Min.   :   0.0    Min.   :  0       Min.   :  0.0    Min.   :  0.0   
+##  1st Qu.:  40.1    1st Qu.:  1       1st Qu.: 12.7    1st Qu.: 11.5   
+##  Median :  76.2    Median :  1       Median : 34.9    Median : 21.5   
+##  Mean   : 109.0    Mean   :  2       Mean   : 39.8    Mean   : 28.9   
+##  3rd Qu.: 139.4    3rd Qu.:  3       3rd Qu.: 60.0    3rd Qu.: 37.8   
+##  Max.   :2537.0    Max.   :103       Max.   :236.0    Max.   :695.0   
+##  NA's   :1484767   NA's   :3492529   NA's   :816492   NA's   :946969  
+##       PXY               SO_2              TCH               TOL         
+##  Min.   :  0       Min.   :  0.0     Min.   : 0.0      Min.   :  0.0    
+##  1st Qu.:  1       1st Qu.:  5.8     1st Qu.: 1.3      1st Qu.:  1.1    
+##  Median :  1       Median :  8.1     Median : 1.4      Median :  3.2    
+##  Mean   :  2       Mean   : 10.7     Mean   : 1.4      Mean   :  5.9    
+##  3rd Qu.:  3       3rd Qu.: 12.3     3rd Qu.: 1.5      3rd Qu.:  7.0    
+##  Max.   :106       Max.   :199.1     Max.   :10.5      Max.   :242.9    
+##  NA's   :3492640   NA's   :1032264   NA's   :2721783   NA's   :2769295  
+##     station              PM25               NO               CH4         
+##  Min.   :28079001   Min.   :-31.0     Min.   :   0.0    Min.   :0        
+##  1st Qu.:28079014   1st Qu.:  6.4     1st Qu.:   2.0    1st Qu.:1        
+##  Median :28079024   Median : 11.0     Median :   6.0    Median :1        
+##  Mean   :28079029   Mean   : 13.7     Mean   :  23.4    Mean   :1        
+##  3rd Qu.:28079040   3rd Qu.: 17.7     3rd Qu.:  20.0    3rd Qu.:1        
+##  Max.   :28079099   Max.   :506.9     Max.   :1146.0    Max.   :4        
+##                     NA's   :2991800   NA's   :2275827   NA's   :3799784
+\end{verbatim}
+
+Getting the date right
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#Ordering by date}
+\NormalTok{madrid.airquality <-}\StringTok{ }\NormalTok{madrid.airquality[}\KeywordTok{with}\NormalTok{(madrid.airquality, }\KeywordTok{order}\NormalTok{(date)),]}
+\NormalTok{madrid.airquality}\OperatorTok{$}\NormalTok{full.date.time <-}\StringTok{ }\KeywordTok{as.POSIXct}\NormalTok{(madrid.airquality}\OperatorTok{$}\NormalTok{date,}\DataTypeTok{format =} \StringTok{"%Y-%m-%d %H:%M:%S"}\NormalTok{, }\DataTypeTok{tz=}\StringTok{'CET'}\NormalTok{)}
+\NormalTok{madrid.airquality}\OperatorTok{$}\NormalTok{date <-}\StringTok{ }\KeywordTok{format}\NormalTok{(madrid.airquality}\OperatorTok{$}\NormalTok{full.date.time, }\StringTok{"%Y-%m-%d"}\NormalTok{)}
+\NormalTok{madrid.airquality}\OperatorTok{$}\NormalTok{time <-}\StringTok{ }\KeywordTok{format}\NormalTok{(madrid.airquality}\OperatorTok{$}\NormalTok{full.date.time, }\StringTok{"%T"}\NormalTok{)}
+\NormalTok{madrid.airquality}\OperatorTok{$}\NormalTok{day <-}\StringTok{ }\KeywordTok{format}\NormalTok{(madrid.airquality}\OperatorTok{$}\NormalTok{full.date.time, }\StringTok{"%d"}\NormalTok{)}
+\NormalTok{madrid.airquality}\OperatorTok{$}\NormalTok{month <-}\StringTok{ }\KeywordTok{format}\NormalTok{(madrid.airquality}\OperatorTok{$}\NormalTok{full.date.time, }\StringTok{"%m"}\NormalTok{)}
+\NormalTok{madrid.airquality}\OperatorTok{$}\NormalTok{year <-}\StringTok{ }\KeywordTok{format}\NormalTok{(madrid.airquality}\OperatorTok{$}\NormalTok{full.date.time, }\StringTok{"%Y"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Getting the total number of NA's in the data frame
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#Total number of NA's}
+\KeywordTok{sum}\NormalTok{(}\KeywordTok{is.na}\NormalTok{(madrid.airquality))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 38791297
+\end{verbatim}
+
+Now, let's filter the data to plot the amount of NA's for our selected
+indicators. For this, we will plot a graph to see the percentage of NA's
+in the data frame subset
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{indicators <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"NO_2"}\NormalTok{, }\StringTok{"O_3"}\NormalTok{, }\StringTok{"SO_2"}\NormalTok{, }\StringTok{"CO"}\NormalTok{, }\StringTok{"PM10"}\NormalTok{, }\StringTok{"PM25"}\NormalTok{)}
+
+\CommentTok{#filtering only the subset of pollutants we want to analyze}
+\NormalTok{madrid.airquality.indicators <-}\StringTok{ }\NormalTok{madrid.airquality[, indicators]}
+
+\NormalTok{na.indicators <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{percent=}\KeywordTok{round}\NormalTok{(}
+  \KeywordTok{colSums}\NormalTok{(}
+    \KeywordTok{is.na}\NormalTok{(madrid.airquality.indicators))}\OperatorTok{/}\KeywordTok{nrow}\NormalTok{(madrid.airquality.indicators)}\OperatorTok{*}\DecValTok{100}\NormalTok{)}
+\NormalTok{  )}
+
+\NormalTok{na.indicators}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      percent
+## NO_2       1
+## O_3       21
+## SO_2      27
+## CO        30
+## PM10      25
+## PM25      79
+\end{verbatim}
+
+Let's plot it into a bar graph to visualize the variation in NA's
+percentage for each pollutant measured in this historical series
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{na.indicators}\OperatorTok{$}\NormalTok{pollutant <-}\StringTok{ }\KeywordTok{rownames}\NormalTok{(na.indicators)}
+\NormalTok{na.indicators}\OperatorTok{$}\NormalTok{pollutant<-}\KeywordTok{factor}\NormalTok{(na.indicators}\OperatorTok{$}\NormalTok{pollutant, }
+                                \KeywordTok{as.character}\NormalTok{(na.indicators}\OperatorTok{$}\NormalTok{pollutant))}
+
+\NormalTok{na.indicators }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{pollutant =} \KeywordTok{fct_reorder}\NormalTok{(pollutant, percent)) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{ggplot}\NormalTok{(}\KeywordTok{aes}\NormalTok{(pollutant, percent,}\DataTypeTok{fill =}\NormalTok{ pollutant)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_bar}\NormalTok{(}\DataTypeTok{stat =} \StringTok{"identity"}\NormalTok{) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{scale_fill_brewer}\NormalTok{() }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_text}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{label=}\KeywordTok{paste0}\NormalTok{(percent,}\StringTok{"%"}\NormalTok{), }\DataTypeTok{y=}\NormalTok{percent}\FloatTok{+0.7}\NormalTok{), }
+                \DataTypeTok{size =} \DecValTok{3}\NormalTok{,}
+                \DataTypeTok{hjust =} \FloatTok{-0.01}
+\NormalTok{                ) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{"Pollutants"}\NormalTok{, }
+       \DataTypeTok{y =} \StringTok{"Percentage"}\NormalTok{, }
+       \DataTypeTok{title =} \StringTok{"Percentage of NAs in Four Pollutants"}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{coord_flip}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{AirQualityMadrid_Capstone_files/figure-latex/unnamed-chunk-11-1.pdf}
+
+PM25 has a considerable large number of NA's with 79\% rate. The other
+pollutants have values between 20 and 30 percent, with only exeception
+of NO2 (1\%)
+
+Now, let's take a look on how these pollutants/indicators vary over
+time.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#Daily variation}
+\NormalTok{madrid.daily <-}\StringTok{ }\NormalTok{madrid.airquality }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{group_by}\NormalTok{(date) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{NO_2.mean =} \KeywordTok{mean}\NormalTok{(NO_}\DecValTok{2}\NormalTok{, }\DataTypeTok{na.rm =}\NormalTok{ T),}
+            \DataTypeTok{O_3.mean =} \KeywordTok{mean}\NormalTok{(O_}\DecValTok{3}\NormalTok{, }\DataTypeTok{na.rm =}\NormalTok{ T),}
+            \DataTypeTok{PM10.mean =} \KeywordTok{mean}\NormalTok{(PM10, }\DataTypeTok{na.rm =}\NormalTok{ T),}
+            \DataTypeTok{SO_2.mean =} \KeywordTok{mean}\NormalTok{(SO_}\DecValTok{2}\NormalTok{, }\DataTypeTok{na.rm =}\NormalTok{ T),}
+            \DataTypeTok{CO.mean =} \KeywordTok{mean}\NormalTok{(CO, }\DataTypeTok{na.rm =}\NormalTok{ T),}
+            \DataTypeTok{PM25.mean =} \KeywordTok{mean}\NormalTok{(PM25, }\DataTypeTok{na.rm =}\NormalTok{ T))}
+
+\CommentTok{#Getting the total pollutant}
+\NormalTok{madrid.daily <-}\StringTok{ }\KeywordTok{mutate}\NormalTok{(madrid.daily, }
+                       \DataTypeTok{tot_poll =} \KeywordTok{rowSums}\NormalTok{(madrid.daily[,}\OperatorTok{-}\DecValTok{1}\NormalTok{], }
+                       \DataTypeTok{na.rm =}\NormalTok{ T))}
+
+\CommentTok{#Plottind the data frame}
+\NormalTok{madrid.daily }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{ggplot}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =} \KeywordTok{as.Date}\NormalTok{(date), }
+             \DataTypeTok{y =}\NormalTok{ tot_poll)) }\OperatorTok{+}\StringTok{ }
+\StringTok{    }\KeywordTok{geom_line}\NormalTok{(}\DataTypeTok{color =} \StringTok{'blue'}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{legend.position =} \StringTok{"none"}\NormalTok{,}
+          \DataTypeTok{panel.background =} \KeywordTok{element_rect}\NormalTok{(}\DataTypeTok{fill =} \StringTok{"gray94"}\NormalTok{, }\DataTypeTok{colour =} \StringTok{"white"}\NormalTok{,}
+                                      \DataTypeTok{size =} \FloatTok{0.5}\NormalTok{, }\DataTypeTok{linetype =} \StringTok{"solid"}\NormalTok{),}
+          \DataTypeTok{legend.background =} \KeywordTok{element_rect}\NormalTok{(}\DataTypeTok{fill =} \StringTok{"gray94"}\NormalTok{),}
+          \DataTypeTok{plot.background =} \KeywordTok{element_rect}\NormalTok{(}\DataTypeTok{fill =} \StringTok{"gray94"}\NormalTok{),}
+          \DataTypeTok{panel.grid.major =} \KeywordTok{element_line}\NormalTok{(}\DataTypeTok{size =} \FloatTok{0.5}\NormalTok{, }\DataTypeTok{linetype =} \StringTok{'solid'}\NormalTok{, }\DataTypeTok{colour =}                                            \StringTok{"white"}\NormalTok{), }
+          \DataTypeTok{panel.grid.minor =} \KeywordTok{element_line}\NormalTok{(}\DataTypeTok{size =} \FloatTok{0.25}\NormalTok{, }\DataTypeTok{linetype =} \StringTok{'solid'}\NormalTok{, }\DataTypeTok{colour =}                                           \StringTok{"white"}\NormalTok{),  }
+          \DataTypeTok{plot.title =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{hjust =} \DecValTok{0}\NormalTok{, }\DataTypeTok{face =} \StringTok{'bold'}\NormalTok{,}\DataTypeTok{color =} \StringTok{'black'}\NormalTok{)) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{''}\NormalTok{, }
+         \DataTypeTok{y =} \StringTok{'Total Pollutants (μg/m³)'}\NormalTok{,}
+         \DataTypeTok{title=}\StringTok{'Daily Average of Air Quality in Madrid'}\NormalTok{, }
+         \DataTypeTok{subtitle=}\StringTok{'Indicators: NO2, O3, PM10, SO2, CO, PM25'}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{axis.text.y =}\KeywordTok{element_text}\NormalTok{(}\DataTypeTok{angle =} \DecValTok{0}\NormalTok{,}
+                                    \DataTypeTok{size =} \DecValTok{8}\NormalTok{),}
+          \DataTypeTok{axis.text.x=}\KeywordTok{element_text}\NormalTok{(}\DataTypeTok{angle =} \DecValTok{90}\NormalTok{, }
+                                   \DataTypeTok{size =} \DecValTok{8}\NormalTok{)) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{scale_x_date}\NormalTok{(}\DataTypeTok{breaks =} \KeywordTok{seq}\NormalTok{(}\KeywordTok{as.Date}\NormalTok{(}\StringTok{"2001-01-01"}\NormalTok{), }
+                              \KeywordTok{as.Date}\NormalTok{(}\StringTok{"2018-07-01"}\NormalTok{), }
+                              \DataTypeTok{by=}\StringTok{"12 months"}\NormalTok{), }
+                 \DataTypeTok{date_labels =} \StringTok{"%Y"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{AirQualityMadrid_Capstone_files/figure-latex/unnamed-chunk-12-1.pdf}
+
+To look how the average total pollution varies through the months, we're
+going to use the same approach as the one applied for the daily
+variation:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#Monthly variation}
+\NormalTok{madrid.monthly <-}\StringTok{ }\NormalTok{madrid.airquality }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{group_by}\NormalTok{(year, month) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{NO_2.mean =} \KeywordTok{mean}\NormalTok{(NO_}\DecValTok{2}\NormalTok{, }\DataTypeTok{na.rm =}\NormalTok{ T),}
+            \DataTypeTok{O_3.mean =} \KeywordTok{mean}\NormalTok{(O_}\DecValTok{3}\NormalTok{, }\DataTypeTok{na.rm =}\NormalTok{ T),}
+            \DataTypeTok{PM10.mean =} \KeywordTok{mean}\NormalTok{(PM10, }\DataTypeTok{na.rm =}\NormalTok{ T),}
+            \DataTypeTok{SO_2.mean =} \KeywordTok{mean}\NormalTok{(SO_}\DecValTok{2}\NormalTok{, }\DataTypeTok{na.rm =}\NormalTok{ T),}
+            \DataTypeTok{CO.mean =} \KeywordTok{mean}\NormalTok{(CO, }\DataTypeTok{na.rm =}\NormalTok{ T),}
+            \DataTypeTok{PM25.mean =} \KeywordTok{mean}\NormalTok{(PM25, }\DataTypeTok{na.rm =}\NormalTok{ T)) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{time =} \KeywordTok{paste}\NormalTok{(year, }\StringTok{"-"}\NormalTok{, month, }\StringTok{"- 01"}\NormalTok{, }\DataTypeTok{sep =} \StringTok{""}\NormalTok{))}
+
+\CommentTok{#Getting the total pollutant}
+\NormalTok{madrid.monthly}\OperatorTok{$}\NormalTok{tot_poll_mon <-}\StringTok{ }\KeywordTok{rowSums}\NormalTok{(madrid.monthly[,}\DecValTok{3}\OperatorTok{:}\DecValTok{8}\NormalTok{], }\DataTypeTok{na.rm =}\NormalTok{ T) }\CommentTok{# this selects only the columns with the averages. In order to check it out, uncomment the next code line:  }
+\CommentTok{#str(madrid.monthly)}
+\NormalTok{madrid.monthly}\OperatorTok{$}\NormalTok{time_mon =}\StringTok{ }\KeywordTok{as.Date}\NormalTok{(madrid.monthly}\OperatorTok{$}\NormalTok{time, }\DataTypeTok{format =} \StringTok{"%Y-%m-%d"}\NormalTok{)}
+
+\CommentTok{#Plottind the data frame}
+\NormalTok{madrid.monthly }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{ggplot}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ time_mon, }
+             \DataTypeTok{y =}\NormalTok{ tot_poll_mon)) }\OperatorTok{+}\StringTok{ }
+\StringTok{    }\KeywordTok{geom_line}\NormalTok{(}\DataTypeTok{color =} \StringTok{'black'}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{legend.position =} \StringTok{"none"}\NormalTok{,}
+          \DataTypeTok{panel.background =} \KeywordTok{element_rect}\NormalTok{(}\DataTypeTok{fill =} \StringTok{"gray94"}\NormalTok{, }\DataTypeTok{colour =} \StringTok{"white"}\NormalTok{,}
+                                      \DataTypeTok{size =} \FloatTok{0.5}\NormalTok{, }\DataTypeTok{linetype =} \StringTok{"solid"}\NormalTok{),}
+          \DataTypeTok{legend.background =} \KeywordTok{element_rect}\NormalTok{(}\DataTypeTok{fill =} \StringTok{"gray94"}\NormalTok{),}
+          \DataTypeTok{plot.background =} \KeywordTok{element_rect}\NormalTok{(}\DataTypeTok{fill =} \StringTok{"gray94"}\NormalTok{),}
+          \DataTypeTok{panel.grid.major =} \KeywordTok{element_line}\NormalTok{(}\DataTypeTok{size =} \FloatTok{0.5}\NormalTok{, }\DataTypeTok{linetype =} \StringTok{'solid'}\NormalTok{, }\DataTypeTok{colour =}                                            \StringTok{"white"}\NormalTok{), }
+          \DataTypeTok{panel.grid.minor =} \KeywordTok{element_line}\NormalTok{(}\DataTypeTok{size =} \FloatTok{0.25}\NormalTok{, }\DataTypeTok{linetype =} \StringTok{'solid'}\NormalTok{, }\DataTypeTok{colour =}                                           \StringTok{"white"}\NormalTok{),  }
+          \DataTypeTok{plot.title =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{hjust =} \DecValTok{0}\NormalTok{, }\DataTypeTok{face =} \StringTok{'bold'}\NormalTok{,}\DataTypeTok{color =} \StringTok{'black'}\NormalTok{)) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{''}\NormalTok{, }
+         \DataTypeTok{y =} \StringTok{'Total Pollutants (μg/m³)'}\NormalTok{,}
+         \DataTypeTok{title=}\StringTok{'Monthly Average of Air Quality in Madrid'}\NormalTok{,}
+         \DataTypeTok{subtitle=}\StringTok{'Indicators: NO2, O3, PM10, SO2, CO, PM25'}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{axis.text.y =}\KeywordTok{element_text}\NormalTok{(}\DataTypeTok{angle =} \DecValTok{0}\NormalTok{,}
+                                    \DataTypeTok{size =} \DecValTok{8}\NormalTok{),}
+          \DataTypeTok{axis.text.x=}\KeywordTok{element_text}\NormalTok{(}\DataTypeTok{angle =} \DecValTok{90}\NormalTok{, }
+                                   \DataTypeTok{size =} \DecValTok{8}\NormalTok{)) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{scale_x_date}\NormalTok{(}\DataTypeTok{breaks =} \KeywordTok{seq}\NormalTok{(}\KeywordTok{as.Date}\NormalTok{(}\StringTok{"2001-01-01"}\NormalTok{), }
+                              \KeywordTok{as.Date}\NormalTok{(}\StringTok{"2018-07-01"}\NormalTok{), }
+                              \DataTypeTok{by=}\StringTok{"6 months"}\NormalTok{), }
+                 \DataTypeTok{date_labels =} \StringTok{"%b-%y"}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{scale_y_continuous}\NormalTok{(}\DataTypeTok{breaks =} \KeywordTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{250}\NormalTok{,}\DecValTok{50}\NormalTok{), }\DataTypeTok{lim =} \KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{250}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{AirQualityMadrid_Capstone_files/figure-latex/unnamed-chunk-13-1.pdf}
+This time series looks like a smooth out curve compared with the daily
+averages, as expected. In this plot, we can observe the presence of some
+peaks, which appear with certain frequency. This can be an indication of
+seasonal effects in the total concentration of pollutants.
+
+Let's look at the yearly moving average
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#Yearly variation}
+\NormalTok{madrid.yearly <-}\StringTok{ }\NormalTok{madrid.airquality }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{select}\NormalTok{(year, station, NO_}\DecValTok{2}\NormalTok{, O_}\DecValTok{3}\NormalTok{, PM10, SO_}\DecValTok{2}\NormalTok{, CO, PM25) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{group_by}\NormalTok{(year) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{NO_2.mean =} \KeywordTok{mean}\NormalTok{(NO_}\DecValTok{2}\NormalTok{, }\DataTypeTok{na.rm =}\NormalTok{ T),}
+            \DataTypeTok{O_3.mean =} \KeywordTok{mean}\NormalTok{(O_}\DecValTok{3}\NormalTok{, }\DataTypeTok{na.rm =}\NormalTok{ T),}
+            \DataTypeTok{PM10.mean =} \KeywordTok{mean}\NormalTok{(PM10, }\DataTypeTok{na.rm =}\NormalTok{ T),}
+            \DataTypeTok{SO_2.mean =} \KeywordTok{mean}\NormalTok{(SO_}\DecValTok{2}\NormalTok{, }\DataTypeTok{na.rm =}\NormalTok{ T),}
+            \DataTypeTok{CO.mean =} \KeywordTok{mean}\NormalTok{(CO, }\DataTypeTok{na.rm =}\NormalTok{ T),}
+            \DataTypeTok{PM25.mean =} \KeywordTok{mean}\NormalTok{(PM25, }\DataTypeTok{na.rm =}\NormalTok{ T))}
+
+\CommentTok{#Getting the total pollutant  }
+\NormalTok{madrid.yearly}\OperatorTok{$}\NormalTok{tot_poll_year <-}\StringTok{ }\KeywordTok{rowSums}\NormalTok{(madrid.yearly[,}\DecValTok{2}\OperatorTok{:}\DecValTok{7}\NormalTok{], }\DataTypeTok{na.rm =}\NormalTok{ T)}\CommentTok{# this selects only the columns with the averages. In order to check it out, uncomment the next code line:  }
+\CommentTok{#str(madrid.yearly)}
+
+\CommentTok{#Plottind the data frame}
+\NormalTok{madrid.yearly }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{ggplot}\NormalTok{(}\KeywordTok{aes}\NormalTok{(year, tot_poll_year, }\DataTypeTok{group =} \DecValTok{1}\NormalTok{)) }\OperatorTok{+}\StringTok{ }
+\StringTok{    }\KeywordTok{geom_point}\NormalTok{(}\KeywordTok{aes}\NormalTok{(year, tot_poll_year), }\DataTypeTok{size =} \DecValTok{2}\NormalTok{, }\DataTypeTok{color =} \StringTok{'darkblue'}\NormalTok{) }\OperatorTok{+}\StringTok{ }
+\StringTok{    }\KeywordTok{geom_line}\NormalTok{(}\DataTypeTok{size =} \DecValTok{3}\NormalTok{, }\DataTypeTok{alpha =} \FloatTok{0.5}\NormalTok{, }\DataTypeTok{color =} \StringTok{'blue'}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{legend.position =} \StringTok{"none"}\NormalTok{,}
+        \DataTypeTok{panel.background =} \KeywordTok{element_rect}\NormalTok{(}\DataTypeTok{fill =} \StringTok{"gray94"}\NormalTok{, }
+                                        \DataTypeTok{colour =} \StringTok{"white"}\NormalTok{,}
+                                        \DataTypeTok{size =} \FloatTok{0.5}\NormalTok{, }
+                                        \DataTypeTok{linetype =} \StringTok{"solid"}\NormalTok{),}
+        \DataTypeTok{legend.background =} \KeywordTok{element_rect}\NormalTok{(}\DataTypeTok{fill =} \StringTok{"gray94"}\NormalTok{),}
+        \DataTypeTok{plot.background =} \KeywordTok{element_rect}\NormalTok{(}\DataTypeTok{fill =} \StringTok{"gray94"}\NormalTok{),}
+        \DataTypeTok{panel.grid.major =} \KeywordTok{element_line}\NormalTok{(}\DataTypeTok{size =} \FloatTok{0.5}\NormalTok{, }
+                                        \DataTypeTok{linetype =} \StringTok{'solid'}\NormalTok{, }
+                                        \DataTypeTok{colour =} \StringTok{"white"}\NormalTok{), }
+        \DataTypeTok{panel.grid.minor =} \KeywordTok{element_line}\NormalTok{(}\DataTypeTok{size =} \FloatTok{0.25}\NormalTok{, }
+                                        \DataTypeTok{linetype =} \StringTok{'solid'}\NormalTok{, }
+                                        \DataTypeTok{colour =} \StringTok{"white"}\NormalTok{),  }
+        \DataTypeTok{plot.title =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{hjust =} \DecValTok{0}\NormalTok{, }
+                                  \DataTypeTok{face =} \StringTok{'bold'}\NormalTok{,}
+                                  \DataTypeTok{color =} \StringTok{'black'}\NormalTok{)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{'Month'}\NormalTok{, }
+       \DataTypeTok{y =} \StringTok{'Total Pollutants (μg/m³)'}\NormalTok{, }
+       \DataTypeTok{title=}\StringTok{'Yearly Average of Air Quality in Madrid'}\NormalTok{, }
+       \DataTypeTok{subtitle=}\StringTok{'Indicators: NO2, O3, PM10, SO2, CO, PM25'}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{axis.text.y =}\KeywordTok{element_text}\NormalTok{(}\DataTypeTok{angle =} \DecValTok{0}\NormalTok{,}
+                                    \DataTypeTok{size =} \DecValTok{8}\NormalTok{),}
+          \DataTypeTok{axis.text.x=}\KeywordTok{element_text}\NormalTok{(}\DataTypeTok{angle =} \DecValTok{90}\NormalTok{, }
+                                   \DataTypeTok{size =} \DecValTok{8}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{AirQualityMadrid_Capstone_files/figure-latex/unnamed-chunk-14-1.pdf}
+
+After looking into the yearly moving average, we can notice a reduction
+tendency on the total number of pollutants. To look for seasonal
+effects, we have to evaluate how the pollutants vary during the year.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{monthly <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Jan"}\NormalTok{, }\StringTok{"Feb"}\NormalTok{, }\StringTok{"Mar"}\NormalTok{, }\StringTok{"Apr"}\NormalTok{, }\StringTok{"May"}\NormalTok{, }\StringTok{"Jun"}\NormalTok{, }\StringTok{"Jul"}\NormalTok{, }\StringTok{"Aug"}\NormalTok{, }\StringTok{"Sep"}\NormalTok{, }\StringTok{"Oct"}\NormalTok{, }\StringTok{"Nov"}\NormalTok{, }\StringTok{"Dec"}\NormalTok{)}
+
+\NormalTok{madrid.monthly }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{group_by}\NormalTok{(month) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{poll_mean =} \KeywordTok{mean}\NormalTok{(tot_poll_mon)) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{ggplot}\NormalTok{(}\KeywordTok{aes}\NormalTok{(month, poll_mean, }\DataTypeTok{group =} \DecValTok{1}\NormalTok{)) }\OperatorTok{+}\StringTok{ }
+\StringTok{    }\KeywordTok{geom_point}\NormalTok{(}\KeywordTok{aes}\NormalTok{(month, tot_poll_mon), }\DataTypeTok{size =} \DecValTok{2}\NormalTok{, }\DataTypeTok{color =} \StringTok{'darkblue'}\NormalTok{) }\OperatorTok{+}\StringTok{ }
+\StringTok{    }\KeywordTok{geom_line}\NormalTok{(}\DataTypeTok{size =} \FloatTok{1.5}\NormalTok{, }\DataTypeTok{alpha =} \FloatTok{0.5}\NormalTok{, }\DataTypeTok{color =} \StringTok{'blue'}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{scale_x_discrete}\NormalTok{(}\DataTypeTok{labels =}\NormalTok{ monthly) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{legend.position =} \StringTok{"none"}\NormalTok{,}
+        \DataTypeTok{panel.background =} \KeywordTok{element_rect}\NormalTok{(}\DataTypeTok{fill =} \StringTok{"gray94"}\NormalTok{, }
+                                        \DataTypeTok{colour =} \StringTok{"white"}\NormalTok{,}
+                                        \DataTypeTok{size =} \FloatTok{0.5}\NormalTok{, }
+                                        \DataTypeTok{linetype =} \StringTok{"solid"}\NormalTok{),}
+        \DataTypeTok{legend.background =} \KeywordTok{element_rect}\NormalTok{(}\DataTypeTok{fill =} \StringTok{"gray94"}\NormalTok{),}
+        \DataTypeTok{plot.background =} \KeywordTok{element_rect}\NormalTok{(}\DataTypeTok{fill =} \StringTok{"gray94"}\NormalTok{),}
+        \DataTypeTok{panel.grid.major =} \KeywordTok{element_line}\NormalTok{(}\DataTypeTok{size =} \FloatTok{0.5}\NormalTok{, }
+                                        \DataTypeTok{linetype =} \StringTok{'solid'}\NormalTok{, }
+                                        \DataTypeTok{colour =} \StringTok{"white"}\NormalTok{), }
+        \DataTypeTok{panel.grid.minor =} \KeywordTok{element_line}\NormalTok{(}\DataTypeTok{size =} \FloatTok{0.25}\NormalTok{, }
+                                        \DataTypeTok{linetype =} \StringTok{'solid'}\NormalTok{, }
+                                        \DataTypeTok{colour =} \StringTok{"white"}\NormalTok{),  }
+        \DataTypeTok{plot.title =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{hjust =} \DecValTok{0}\NormalTok{, }
+                                  \DataTypeTok{face =} \StringTok{'bold'}\NormalTok{,}
+                                  \DataTypeTok{color =} \StringTok{'black'}\NormalTok{)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{'Month'}\NormalTok{, }
+       \DataTypeTok{y =} \StringTok{'Total Polution (μg/m³)'}\NormalTok{, }
+       \DataTypeTok{title=}\StringTok{'Monthly Average of Air Quality in Madrid'}\NormalTok{, }
+       \DataTypeTok{subtitle=}\StringTok{'Indicators: NO2, O3, PM10, SO2, CO, PM25'}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{axis.text.y =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{size =} \DecValTok{8}\NormalTok{),}
+        \DataTypeTok{axis.text.x=}\KeywordTok{element_text}\NormalTok{(}
+          \DataTypeTok{angle =} \DecValTok{90}\NormalTok{,}
+          \DataTypeTok{size =} \DecValTok{8}\NormalTok{)) }\OperatorTok{+}
+\StringTok{   }\KeywordTok{facet_wrap}\NormalTok{(}\OperatorTok{~}\NormalTok{year)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{AirQualityMadrid_Capstone_files/figure-latex/unnamed-chunk-15-1.pdf}
+
+As one can observe, through all the years it seems that during the
+months of summer, approximately from May to September, the levels of
+pollutants are higher than at the rest of the year, with a peak around
+July. These are the months where the rain ocurrance is poor compared to
+the other periods of the year, therefore the dry weather can contribute
+to this behavior.
+
+\hypertarget{making-predictions---modelling-algorithms}{%
+\section{Making predictions - modelling
+algorithms}\label{making-predictions---modelling-algorithms}}
+
+\hypertarget{simple-exponential-smooth-ses}{%
+\subsection{Simple exponential smooth
+(SES)}\label{simple-exponential-smooth-ses}}
+
+For our first model, we are going to use Exponential Smoothing method,
+which is an extension of the naive method, wherein the forecasts are
+produced using weighted averages of past observations, with the weights
+decaying exponentially as the observations get older. In simple words,
+higher weights are given to the more recent observations and vice versa.
+The value of the smoothing parameter for the level is decided by the
+parameter `alpha'.
+
+In order to make predictions, we are goind to use the library forecast,
+which has all the functions needed.
+
+The ``autoplot'' function generates a ggplot object, therefore we can
+style it in the same way we have done so far.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#Predicting the total pollutant by month}
+\KeywordTok{library}\NormalTok{(forecast)}
+\CommentTok{#The time series to be take into account. We are going to predict the total pollutants by month}
+\NormalTok{monthly.ts <-}\StringTok{ }\KeywordTok{ts}\NormalTok{(madrid.monthly[,}\DecValTok{10}\NormalTok{],}\DataTypeTok{start=}\KeywordTok{c}\NormalTok{(}\DecValTok{2001}\NormalTok{,}\DecValTok{1}\NormalTok{), }\DataTypeTok{end=}\KeywordTok{c}\NormalTok{(}\DecValTok{2018}\NormalTok{,}\DecValTok{5}\NormalTok{), }\DataTypeTok{frequency =} \DecValTok{12}\NormalTok{)}
+
+\CommentTok{#Making predictions for the next 36 months}
+\NormalTok{model.ses.ts <-}\StringTok{ }\KeywordTok{ses}\NormalTok{(monthly.ts, }\DataTypeTok{h=}\DecValTok{36}\NormalTok{)}
+\KeywordTok{summary}\NormalTok{(model.ses.ts)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Forecast method: Simple exponential smoothing
+## 
+## Model Information:
+## Simple exponential smoothing 
+## 
+## Call:
+##  ses(y = monthly.ts, h = 36) 
+## 
+##   Smoothing parameters:
+##     alpha = 0.5954 
+## 
+##   Initial states:
+##     l = 136.9716 
+## 
+##   sigma:  14.1935
+## 
+##      AIC     AICc      BIC 
+## 2229.403 2229.520 2239.430 
+## 
+## Error measures:
+##                      ME     RMSE      MAE        MPE     MAPE      MASE
+## Training set -0.2608008 14.12546 11.17419 -0.9447616 8.110637 0.8498069
+##                    ACF1
+## Training set 0.05503343
+## 
+## Forecasts:
+##          Point Forecast    Lo 80    Hi 80     Lo 95    Hi 95
+## Jun 2018       104.5165 86.32676 122.7063 76.697684 132.3353
+## Jul 2018       104.5165 83.34649 125.6865 72.139755 136.8933
+## Aug 2018       104.5165 80.73684 128.2962 68.148647 140.8844
+## Sep 2018       104.5165 78.38654 130.6465 64.554170 144.4788
+## Oct 2018       104.5165 76.23086 132.8022 61.257340 147.7757
+## Nov 2018       104.5165 74.22821 134.8048 58.194561 150.8385
+## Dec 2018       104.5165 72.35001 136.6830 55.322098 153.7109
+## Jan 2019       104.5165 70.57559 138.4574 52.608347 156.4247
+## Feb 2019       104.5165 68.88943 140.1436 50.029589 159.0034
+## Mar 2019       104.5165 67.27954 141.7535 47.567483 161.4655
+## Apr 2019       104.5165 65.73643 143.2966 45.207498 163.8255
+## May 2019       104.5165 64.25242 144.7806 42.937893 166.0951
+## Jun 2019       104.5165 62.82119 146.2118 40.749016 168.2840
+## Jul 2019       104.5165 61.43748 147.5955 38.632821 170.4002
+## Aug 2019       104.5165 60.09686 148.9362 36.582516 172.4505
+## Sep 2019       104.5165 58.79553 150.2375 34.592303 174.4407
+## Oct 2019       104.5165 57.53023 151.5028 32.657189 176.3758
+## Nov 2019       104.5165 56.29811 152.7349 30.772838 178.2602
+## Dec 2019       104.5165 55.09671 153.9363 28.935452 180.0976
+## Jan 2020       104.5165 53.92383 155.1092 27.141685 181.8913
+## Feb 2020       104.5165 52.77753 156.2555 25.388572 183.6444
+## Mar 2020       104.5165 51.65608 157.3769 23.673466 185.3596
+## Apr 2020       104.5165 50.55794 158.4751 21.993998 187.0390
+## May 2020       104.5165 49.48170 159.5513 20.348035 188.6850
+## Jun 2020       104.5165 48.42611 160.6069 18.733648 190.2994
+## Jul 2020       104.5165 47.39002 161.6430 17.149088 191.8839
+## Aug 2020       104.5165 46.37239 162.6606 15.592758 193.4403
+## Sep 2020       104.5165 45.37227 163.6607 14.063202 194.9698
+## Oct 2020       104.5165 44.38878 164.6442 12.559085 196.4739
+## Nov 2020       104.5165 43.42112 165.6119 11.079177 197.9538
+## Dec 2020       104.5165 42.46855 166.5645  9.622346 199.4107
+## Jan 2021       104.5165 41.53038 167.5026  8.187545 200.8455
+## Feb 2021       104.5165 40.60599 168.4270  6.773803 202.2592
+## Mar 2021       104.5165 39.69477 169.3382  5.380220 203.6528
+## Apr 2021       104.5165 38.79619 170.2368  4.005958 205.0271
+## May 2021       104.5165 37.90973 171.1233  2.650234 206.3828
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#Plotting the predictions}
+\NormalTok{model.ses.ts }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{autoplot}\NormalTok{() }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{axis.text.x =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{angle =} \DecValTok{0}\NormalTok{),}
+        \DataTypeTok{panel.background =} \KeywordTok{element_rect}\NormalTok{(}\DataTypeTok{fill =} \StringTok{"gray94"}\NormalTok{, }\DataTypeTok{colour =} \StringTok{"white"}\NormalTok{,}
+                                        \DataTypeTok{size =} \FloatTok{0.5}\NormalTok{, }\DataTypeTok{linetype =} \StringTok{"solid"}\NormalTok{),}
+        \DataTypeTok{legend.background =} \KeywordTok{element_rect}\NormalTok{(}\DataTypeTok{fill =} \StringTok{"gray94"}\NormalTok{),}
+        \DataTypeTok{plot.background =} \KeywordTok{element_rect}\NormalTok{(}\DataTypeTok{fill =} \StringTok{"gray94"}\NormalTok{),}
+        \DataTypeTok{panel.grid.major =} \KeywordTok{element_line}\NormalTok{(}\DataTypeTok{size =} \FloatTok{0.5}\NormalTok{, }\DataTypeTok{linetype =} \StringTok{'solid'}\NormalTok{, }\DataTypeTok{colour =} \StringTok{"white"}\NormalTok{), }
+        \DataTypeTok{panel.grid.minor =} \KeywordTok{element_line}\NormalTok{(}\DataTypeTok{size =} \FloatTok{0.25}\NormalTok{, }\DataTypeTok{linetype =} \StringTok{'solid'}\NormalTok{, }\DataTypeTok{colour =} \StringTok{"white"}\NormalTok{),  }
+        \DataTypeTok{plot.title =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{hjust =} \DecValTok{0}\NormalTok{, }\DataTypeTok{face =} \StringTok{'bold'}\NormalTok{,}\DataTypeTok{color =} \StringTok{'black'}\NormalTok{)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{''}\NormalTok{, }\DataTypeTok{y =} \StringTok{'Total Polution (μg/m³)'}\NormalTok{, }\DataTypeTok{title=}\StringTok{'Forecasting of Air Quality using SES'}\NormalTok{, }\DataTypeTok{subtitle=}\StringTok{'Indicators: NO2, O3, PM10, SO2, CO, PM25'}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_y_continuous}\NormalTok{(}\DataTypeTok{breaks =} \KeywordTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{250}\NormalTok{,}\DecValTok{50}\NormalTok{), }\DataTypeTok{lim =} \KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{250}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{AirQualityMadrid_Capstone_files/figure-latex/unnamed-chunk-16-1.pdf}
+
+\hypertarget{holts-trend}{%
+\subsection{Holt's trend}\label{holts-trend}}
+
+This is an extension of the simple exponential smoothing method which
+considers the trend component while generating forecasts. This method
+involves two smoothing equations, one for the level and one for the
+trend component.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#Making predictions for the next 36 months}
+\NormalTok{model.holt.ts <-}\StringTok{ }\KeywordTok{holt}\NormalTok{(monthly.ts, }\DataTypeTok{h=}\DecValTok{36}\NormalTok{)}
+\KeywordTok{summary}\NormalTok{(model.holt.ts)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Forecast method: Holt's method
+## 
+## Model Information:
+## Holt's method 
+## 
+## Call:
+##  holt(y = monthly.ts, h = 36) 
+## 
+##   Smoothing parameters:
+##     alpha = 0.5931 
+##     beta  = 1e-04 
+## 
+##   Initial states:
+##     l = 144.7659 
+##     b = -0.173 
+## 
+##   sigma:  14.2728
+## 
+##      AIC     AICc      BIC 
+## 2233.703 2233.998 2250.414 
+## 
+## Error measures:
+##                       ME    RMSE      MAE        MPE     MAPE      MASE
+## Training set -0.03716885 14.1356 11.17017 -0.7814792 8.099194 0.8495011
+##                    ACF1
+## Training set 0.05541874
+## 
+## Forecasts:
+##          Point Forecast    Lo 80    Hi 80      Lo 95    Hi 95
+## Jun 2018      104.25691 85.96553 122.5483 76.2826646 132.2312
+## Jul 2018      104.08313 82.81585 125.3504 71.5576239 136.6086
+## Aug 2018      103.90935 80.03342 127.7853 67.3942637 140.4244
+## Sep 2018      103.73557 77.50844 129.9627 63.6246317 143.8465
+## Oct 2018      103.56179 75.17685 131.9467 60.1507765 146.9728
+## Nov 2018      103.38801 72.99745 133.7786 56.9096526 149.8664
+## Dec 2018      103.21423 70.94183 135.4866 53.8578501 152.5706
+## Jan 2019      103.04045 68.98947 137.0914 50.9639708 155.1169
+## Feb 2019      102.86667 67.12496 138.6084 48.2044337 157.5289
+## Mar 2019      102.69289 65.33635 140.0494 45.5609950 159.8248
+## Apr 2019      102.51911 63.61421 141.4240 43.0191962 162.0190
+## May 2019      102.34533 61.95088 142.7398 40.5673480 164.1233
+## Jun 2019      102.17155 60.34008 144.0030 38.1958408 166.1473
+## Jul 2019      101.99777 58.77658 145.2190 35.8966604 168.0989
+## Aug 2019      101.82399 57.25594 146.3920 33.6630403 169.9849
+## Sep 2019      101.65021 55.77440 147.5260 31.4892060 171.8112
+## Oct 2019      101.47643 54.32869 148.6242 29.3701823 173.5827
+## Nov 2019      101.30265 52.91600 149.6893 27.3016465 175.3037
+## Dec 2019      101.12887 51.53384 150.7239 25.2798148 176.9779
+## Jan 2020      100.95509 50.18004 151.7301 23.3013525 178.6088
+## Feb 2020      100.78131 48.85267 152.7100 21.3633029 180.1993
+## Mar 2020      100.60753 47.54999 153.6651 19.4630299 181.7520
+## Apr 2020      100.43375 46.27048 154.5970 17.5981712 183.2693
+## May 2020      100.25997 45.01273 155.5072 15.7666005 184.7533
+## Jun 2020      100.08619 43.77548 156.3969 13.9663951 186.2060
+## Jul 2020       99.91241 42.55761 157.2672 12.1958104 187.6290
+## Aug 2020       99.73863 41.35806 158.1192 10.4532569 189.0240
+## Sep 2020       99.56486 40.17590 158.9538  8.7372821 190.3924
+## Oct 2020       99.39108 39.01024 159.7719  7.0465543 191.7356
+## Nov 2020       99.21730 37.86029 160.5743  5.3798489 193.0547
+## Dec 2020       99.04352 36.72530 161.3617  3.7360370 194.3510
+## Jan 2021       98.86974 35.60461 162.1349  2.1140751 195.6254
+## Feb 2021       98.69596 34.49757 162.8943  0.5129962 196.8789
+## Mar 2021       98.52218 33.40360 163.6408 -1.0680977 198.1124
+## Apr 2021       98.34840 32.32214 164.3746 -2.6300422 199.3268
+## May 2021       98.17462 31.25270 165.0965 -4.1736166 200.5228
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#Plotting the predictions}
+\NormalTok{model.holt.ts }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{autoplot}\NormalTok{() }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{axis.text.x =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{angle =} \DecValTok{0}\NormalTok{),}
+        \DataTypeTok{panel.background =} \KeywordTok{element_rect}\NormalTok{(}\DataTypeTok{fill =} \StringTok{"gray94"}\NormalTok{, }\DataTypeTok{colour =} \StringTok{"white"}\NormalTok{,}
+                                        \DataTypeTok{size =} \FloatTok{0.5}\NormalTok{, }\DataTypeTok{linetype =} \StringTok{"solid"}\NormalTok{),}
+        \DataTypeTok{legend.background =} \KeywordTok{element_rect}\NormalTok{(}\DataTypeTok{fill =} \StringTok{"gray94"}\NormalTok{),}
+        \DataTypeTok{plot.background =} \KeywordTok{element_rect}\NormalTok{(}\DataTypeTok{fill =} \StringTok{"gray94"}\NormalTok{),}
+        \DataTypeTok{panel.grid.major =} \KeywordTok{element_line}\NormalTok{(}\DataTypeTok{size =} \FloatTok{0.5}\NormalTok{, }\DataTypeTok{linetype =} \StringTok{'solid'}\NormalTok{, }\DataTypeTok{colour =} \StringTok{"white"}\NormalTok{), }
+        \DataTypeTok{panel.grid.minor =} \KeywordTok{element_line}\NormalTok{(}\DataTypeTok{size =} \FloatTok{0.25}\NormalTok{, }\DataTypeTok{linetype =} \StringTok{'solid'}\NormalTok{, }\DataTypeTok{colour =} \StringTok{"white"}\NormalTok{),  }
+        \DataTypeTok{plot.title =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{hjust =} \DecValTok{0}\NormalTok{, }\DataTypeTok{face =} \StringTok{'bold'}\NormalTok{,}\DataTypeTok{color =} \StringTok{'black'}\NormalTok{)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{''}\NormalTok{, }\DataTypeTok{y =} \StringTok{'Total Polution (μg/m³)'}\NormalTok{, }\DataTypeTok{title=}\StringTok{'Forecasting of Air Quality using Holt}\CharTok{\textbackslash{}'}\StringTok{s trend'}\NormalTok{, }\DataTypeTok{subtitle=}\StringTok{'Indicators: NO2, O3, PM10, SO2, CO, PM25'}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_y_continuous}\NormalTok{(}\DataTypeTok{breaks =} \KeywordTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{250}\NormalTok{,}\DecValTok{50}\NormalTok{), }\DataTypeTok{lim =} \KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{250}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{AirQualityMadrid_Capstone_files/figure-latex/unnamed-chunk-17-1.pdf}
+
+\hypertarget{arima}{%
+\subsection{ARIMA}\label{arima}}
+
+Autoregressive Integrated Moving Average, aka ARIMA, as the data set
+seems to have a periodic behavior. In the package forecast we have the
+function ``auto.arima'', which fits the best ARIMA model to an
+univariate time series. In order to make predictions for the next 3
+years, we need to use the ``forecast'' funtion passing the number of
+months to predict.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#Making predictions for the next 36 months}
+\NormalTok{model.arima.ts <-}\StringTok{ }\KeywordTok{auto.arima}\NormalTok{(monthly.ts)}
+\KeywordTok{summary}\NormalTok{(model.arima.ts)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Series: monthly.ts 
+## ARIMA(5,1,1)(2,0,1)[12] with drift 
+## 
+## Coefficients:
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in sqrt(diag(x$var.coef)): Se han producido NaNs
+\end{verbatim}
+
+\begin{verbatim}
+##          ar1     ar2      ar3     ar4      ar5      ma1    sar1    sar2    sma1
+##       0.2756  0.0796  -0.1368  0.0280  -0.0513  -0.8377  0.5289  0.2872  -0.488
+## s.e.  0.0947  0.0854   0.0796  0.0828   0.0798   0.0759     NaN     NaN     NaN
+##         drift
+##       -0.1126
+## s.e.   0.3717
+## 
+## sigma^2 estimated as 149.3:  log likelihood=-813.8
+## AIC=1649.6   AICc=1650.95   BIC=1686.31
+## 
+## Training set error measures:
+##                       ME     RMSE     MAE       MPE     MAPE      MASE
+## Training set -0.02918269 11.89251 9.21039 -0.670073 6.724383 0.7004582
+##                     ACF1
+## Training set 0.001566434
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#Plotting the predictions}
+\NormalTok{model.arima.ts }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{forecast}\NormalTok{(}\DataTypeTok{h=}\DecValTok{36}\NormalTok{) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{autoplot}\NormalTok{() }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{axis.text.x =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{angle =} \DecValTok{0}\NormalTok{),}
+        \DataTypeTok{panel.background =} \KeywordTok{element_rect}\NormalTok{(}\DataTypeTok{fill =} \StringTok{"gray94"}\NormalTok{, }\DataTypeTok{colour =} \StringTok{"white"}\NormalTok{,}
+                                        \DataTypeTok{size =} \FloatTok{0.5}\NormalTok{, }\DataTypeTok{linetype =} \StringTok{"solid"}\NormalTok{),}
+        \DataTypeTok{legend.background =} \KeywordTok{element_rect}\NormalTok{(}\DataTypeTok{fill =} \StringTok{"gray94"}\NormalTok{),}
+        \DataTypeTok{plot.background =} \KeywordTok{element_rect}\NormalTok{(}\DataTypeTok{fill =} \StringTok{"gray94"}\NormalTok{),}
+        \DataTypeTok{panel.grid.major =} \KeywordTok{element_line}\NormalTok{(}\DataTypeTok{size =} \FloatTok{0.5}\NormalTok{, }\DataTypeTok{linetype =} \StringTok{'solid'}\NormalTok{, }\DataTypeTok{colour =} \StringTok{"white"}\NormalTok{), }
+        \DataTypeTok{panel.grid.minor =} \KeywordTok{element_line}\NormalTok{(}\DataTypeTok{size =} \FloatTok{0.25}\NormalTok{, }\DataTypeTok{linetype =} \StringTok{'solid'}\NormalTok{, }\DataTypeTok{colour =} \StringTok{"white"}\NormalTok{),  }
+        \DataTypeTok{plot.title =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{hjust =} \DecValTok{0}\NormalTok{, }\DataTypeTok{face =} \StringTok{'bold'}\NormalTok{,}\DataTypeTok{color =} \StringTok{'black'}\NormalTok{)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{''}\NormalTok{, }\DataTypeTok{y =} \StringTok{'Total Polution (μg/m³)'}\NormalTok{, }\DataTypeTok{title=}\StringTok{'Forecasting of Air Quality using ARIMA'}\NormalTok{, }\DataTypeTok{subtitle=}\StringTok{'Indicators: NO2, O3, PM10, SO2, CO, PM25'}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_y_continuous}\NormalTok{(}\DataTypeTok{breaks =} \KeywordTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{250}\NormalTok{,}\DecValTok{50}\NormalTok{), }\DataTypeTok{lim =} \KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{250}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{AirQualityMadrid_Capstone_files/figure-latex/unnamed-chunk-18-1.pdf}
+
+\hypertarget{tbats}{%
+\subsection{TBATS}\label{tbats}}
+
+The TBATS model combines several components of the already discussed
+techniques in this guide, making them a very good choice for
+forecasting. It constitutes the following elements:
+
+T: Trigonometric terms for seasonality\\
+B: Box-Cox transformations for heterogeneity\\
+A: Autoregressive Moving Average (ARMA) errors for short-term dynamics\\
+T: Trend\\
+S: Seasonal (including multiple and non-integer periods)
+
+In this case, we need to use the ``forecast'' funtion passing the number
+of months to predict, same as we did for ARIMA.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#Making predictions for the next 36 months}
+\NormalTok{model.tbats.ts <-}\StringTok{ }\KeywordTok{tbats}\NormalTok{(monthly.ts)}
+\KeywordTok{summary}\NormalTok{(model.tbats.ts)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                   Length Class  Mode     
+## lambda               0   -none- NULL     
+## alpha                1   -none- numeric  
+## beta                 0   -none- NULL     
+## damping.parameter    0   -none- NULL     
+## gamma.one.values     1   -none- numeric  
+## gamma.two.values     1   -none- numeric  
+## ar.coefficients      0   -none- NULL     
+## ma.coefficients      0   -none- NULL     
+## likelihood           1   -none- numeric  
+## optim.return.code    1   -none- numeric  
+## variance             1   -none- numeric  
+## AIC                  1   -none- numeric  
+## parameters           2   -none- list     
+## seed.states         11   -none- numeric  
+## fitted.values      209   ts     numeric  
+## errors             209   ts     numeric  
+## x                 2299   -none- numeric  
+## seasonal.periods     1   -none- numeric  
+## k.vector             1   -none- numeric  
+## y                  209   ts     numeric  
+## p                    1   -none- numeric  
+## q                    1   -none- numeric  
+## call                 2   -none- call     
+## series               1   -none- character
+## method               1   -none- character
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#Plotting the predictions}
+\NormalTok{model.arima.ts }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{forecast}\NormalTok{(}\DataTypeTok{h=}\DecValTok{36}\NormalTok{) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{autoplot}\NormalTok{() }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{axis.text.x =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{angle =} \DecValTok{0}\NormalTok{),}
+        \DataTypeTok{panel.background =} \KeywordTok{element_rect}\NormalTok{(}\DataTypeTok{fill =} \StringTok{"gray94"}\NormalTok{, }\DataTypeTok{colour =} \StringTok{"white"}\NormalTok{,}
+                                        \DataTypeTok{size =} \FloatTok{0.5}\NormalTok{, }\DataTypeTok{linetype =} \StringTok{"solid"}\NormalTok{),}
+        \DataTypeTok{legend.background =} \KeywordTok{element_rect}\NormalTok{(}\DataTypeTok{fill =} \StringTok{"gray94"}\NormalTok{),}
+        \DataTypeTok{plot.background =} \KeywordTok{element_rect}\NormalTok{(}\DataTypeTok{fill =} \StringTok{"gray94"}\NormalTok{),}
+        \DataTypeTok{panel.grid.major =} \KeywordTok{element_line}\NormalTok{(}\DataTypeTok{size =} \FloatTok{0.5}\NormalTok{, }\DataTypeTok{linetype =} \StringTok{'solid'}\NormalTok{, }\DataTypeTok{colour =} \StringTok{"white"}\NormalTok{), }
+        \DataTypeTok{panel.grid.minor =} \KeywordTok{element_line}\NormalTok{(}\DataTypeTok{size =} \FloatTok{0.25}\NormalTok{, }\DataTypeTok{linetype =} \StringTok{'solid'}\NormalTok{, }\DataTypeTok{colour =} \StringTok{"white"}\NormalTok{),  }
+        \DataTypeTok{plot.title =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{hjust =} \DecValTok{0}\NormalTok{, }\DataTypeTok{face =} \StringTok{'bold'}\NormalTok{,}\DataTypeTok{color =} \StringTok{'black'}\NormalTok{)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{''}\NormalTok{, }\DataTypeTok{y =} \StringTok{'Total Polution (μg/m³)'}\NormalTok{, }\DataTypeTok{title=}\StringTok{'Forecasting of Air Quality using TBATS'}\NormalTok{, }\DataTypeTok{subtitle=}\StringTok{'Indicators: NO2, O3, PM10, SO2, CO, PM25'}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_y_continuous}\NormalTok{(}\DataTypeTok{breaks =} \KeywordTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{250}\NormalTok{,}\DecValTok{50}\NormalTok{), }\DataTypeTok{lim =} \KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{250}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{AirQualityMadrid_Capstone_files/figure-latex/unnamed-chunk-19-1.pdf}
+
+\hypertarget{conclusions}{%
+\section{Conclusions}\label{conclusions}}
+
+In summary, the analysis of the evolution of air quality in Madrid shows
+that the number of total pollutant are decreasing overall. We can also
+see in the time series, the seasonal effects that pumps the levels of
+pollutants up during the summer months, which are the months with lowest
+\href{https://www.holiday-weather.com/madrid/averages/}{average rainfall
+rates}. In this brief analysis we only select 6 pollutants as being ones
+of the most important among them, nevertheless a broader comparison
+should be done in order to have an overall picture of the air quality in
+Madrid. From our models, we were able to note that the ARIMA and TBATS
+algorythms performs the best in the lowest RMSE's (around 11).
+Furthermore, as a future work, an analysis of the air quality as a
+function of the stations should be done. Such task can provide
+information of what part of Madrid is the less or more polluted, giving
+the total pollutant values.
+
+\end{document}

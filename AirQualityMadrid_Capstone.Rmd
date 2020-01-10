@@ -295,9 +295,11 @@ madrid.yearly %>%
           axis.text.x=element_text(angle = 90, 
                                    size = 8))
 ```
-After looking into the yearly moving average, we can notice a reduction tendency on the total number of pollutants.
 
+
+After looking into the yearly moving average, we can notice a reduction tendency on the total number of pollutants.
 To look for seasonal effects, we have to evaluate how the pollutants vary during the year.
+
 ```{r}
 monthly <- c("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
 
@@ -418,11 +420,11 @@ model.arima.ts %>%
 The TBATS model combines several components of the already discussed techniques in this guide, making them a very good choice for forecasting.
 It constitutes the following elements:
 
-T: Trigonometric terms for seasonality
-B: Box-Cox transformations for heterogeneity
-A: Autoregressive Moving Average (ARMA) errors for short-term dynamics
-T: Trend
-S: Seasonal (including multiple and non-integer periods)
+T: Trigonometric terms for seasonality  
+B: Box-Cox transformations for heterogeneity  
+A: Autoregressive Moving Average (ARMA) errors for short-term dynamics  
+T: Trend  
+S: Seasonal (including multiple and non-integer periods)  
 
 In this case, we need to use the "forecast" funtion passing the number of months to predict, same as we did for ARIMA.
 
