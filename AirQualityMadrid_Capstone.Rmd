@@ -19,7 +19,7 @@ if(!require(tidyverse)) install.packages("tidyverse", repos = "http://cran.us.r-
 if(!require(caret)) install.packages("caret", repos = "http://cran.us.r-project.org")
 if(!require(data.table)) install.packages("data.table", repos = "http://cran.us.r-project.org")
 if(!require(lubridate)) install.packages("lubridate", repos = "http://cran.us.r-project.org")
-#if(!require(anova)) install.packages("anova", repos = "http://cran.us.r-project.org")
+if(!require(forecast)) install.packages("forecast", repos = "http://cran.us.r-project.org")
 ```
 Now let's load the CSV files
 ```{r}
@@ -340,3 +340,110 @@ madrid.monthly %>%
 As one can observe, through all the years it seems that during the months of summer, approximately from May to September, the levels of pollutants are higher than at the rest of the year, with a peak around July. These are the months where the rain ocurrance is poor compared to the other periods of the year, therefore the dry weather can contribute to this behavior.
 
 # Making predictions - modelling algorithms
+## Simple exponential smooth
+For our first model, we are going to use Exponential Smoothing method, which is an extension of the naive method, wherein the forecasts are produced using weighted averages of past observations, with the weights decaying exponentially as the observations get older. In simple words, higher weights are given to the more recent observations and vice versa. The value of the smoothing parameter for the level is decided by the parameter 'alpha'.
+
+In order to make predictions, we are goind to use the library forecast, which has all the functions needed.
+
+The "autoplot" function generates a ggplot object, therefore we can style it in the same way we have done so far.
+```{r}
+#Predicting the total pollutant by month
+library(forecast)
+#The time series to be take into account. We are going to predict the total pollutants by month
+monthly.ts <- ts(madrid.monthly[,10],start=c(2001,1), end=c(2018,5), frequency = 12)
+
+#Making predictions for the next 36 months
+model.ses.ts <- ses(monthly.ts, h=36)
+
+#Plotting the predictions
+model.ses.ts %>%
+  autoplot() + 
+  theme(axis.text.x = element_text(angle = 0),
+        panel.background = element_rect(fill = "gray94", colour = "white",
+                                        size = 0.5, linetype = "solid"),
+        legend.background = element_rect(fill = "gray94"),
+        plot.background = element_rect(fill = "gray94"),
+        panel.grid.major = element_line(size = 0.5, linetype = 'solid', colour = "white"), 
+        panel.grid.minor = element_line(size = 0.25, linetype = 'solid', colour = "white"),  
+        plot.title = element_text(hjust = 0, face = 'bold',color = 'black')) +
+  labs(x = '', y = 'Total Polution (μg/m³)', title='Forecasting of Air Quality using ARIMA', subtitle='Indicators: NO2, O3, PM10, SO2, CO, PM25') +
+  scale_y_continuous(breaks = seq(0,250,50), lim = c(0,250))
+```
+
+## Holt's trend
+This is an extension of the simple exponential smoothing method which considers the trend component while generating forecasts. This method involves two smoothing equations, one for the level and one for the trend component.
+```{r}
+#Making predictions for the next 36 months
+model.holt.ts <- holt(monthly.ts, h=36)
+model.holt.ts
+
+#Plotting the predictions
+model.holt.ts %>%
+  autoplot() + 
+  theme(axis.text.x = element_text(angle = 0),
+        panel.background = element_rect(fill = "gray94", colour = "white",
+                                        size = 0.5, linetype = "solid"),
+        legend.background = element_rect(fill = "gray94"),
+        plot.background = element_rect(fill = "gray94"),
+        panel.grid.major = element_line(size = 0.5, linetype = 'solid', colour = "white"), 
+        panel.grid.minor = element_line(size = 0.25, linetype = 'solid', colour = "white"),  
+        plot.title = element_text(hjust = 0, face = 'bold',color = 'black')) +
+  labs(x = '', y = 'Total Polution (μg/m³)', title='Forecasting of Air Quality using ARIMA', subtitle='Indicators: NO2, O3, PM10, SO2, CO, PM25') +
+  scale_y_continuous(breaks = seq(0,250,50), lim = c(0,250))
+```
+
+## ARIMA
+Autoregressive Integrated Moving Average, aka ARIMA, as the data set seems to have a periodic behavior. In the package forecast we have the function "auto.arima", which fits the best ARIMA model to an univariate time series. In order to make predictions for the next 3 years, we need to use the "forecast" funtion passing the number of months to predict. 
+```{r}
+#Making predictions for the next 36 months
+model.arima.ts <- auto.arima(monthly.ts)
+
+#Plotting the predictions
+model.arima.ts %>%
+  forecast(h=36) %>%
+  autoplot() + 
+  theme(axis.text.x = element_text(angle = 0),
+        panel.background = element_rect(fill = "gray94", colour = "white",
+                                        size = 0.5, linetype = "solid"),
+        legend.background = element_rect(fill = "gray94"),
+        plot.background = element_rect(fill = "gray94"),
+        panel.grid.major = element_line(size = 0.5, linetype = 'solid', colour = "white"), 
+        panel.grid.minor = element_line(size = 0.25, linetype = 'solid', colour = "white"),  
+        plot.title = element_text(hjust = 0, face = 'bold',color = 'black')) +
+  labs(x = '', y = 'Total Polution (μg/m³)', title='Forecasting of Air Quality using ARIMA', subtitle='Indicators: NO2, O3, PM10, SO2, CO, PM25') +
+  scale_y_continuous(breaks = seq(0,250,50), lim = c(0,250))
+```
+
+## TBATS
+The TBATS model combines several components of the already discussed techniques in this guide, making them a very good choice for forecasting.
+It constitutes the following elements:
+
+T: Trigonometric terms for seasonality
+B: Box-Cox transformations for heterogeneity
+A: Autoregressive Moving Average (ARMA) errors for short-term dynamics
+T: Trend
+S: Seasonal (including multiple and non-integer periods)
+
+In this case, we need to use the "forecast" funtion passing the number of months to predict, same as we did for ARIMA.
+
+```{r}
+#Making predictions for the next 36 months
+model.tbats.ts <- tbats(monthly.ts)
+
+#Plotting the predictions
+model.arima.ts %>%
+  forecast(h=36) %>%
+  autoplot() + 
+  theme(axis.text.x = element_text(angle = 0),
+        panel.background = element_rect(fill = "gray94", colour = "white",
+                                        size = 0.5, linetype = "solid"),
+        legend.background = element_rect(fill = "gray94"),
+        plot.background = element_rect(fill = "gray94"),
+        panel.grid.major = element_line(size = 0.5, linetype = 'solid', colour = "white"), 
+        panel.grid.minor = element_line(size = 0.25, linetype = 'solid', colour = "white"),  
+        plot.title = element_text(hjust = 0, face = 'bold',color = 'black')) +
+  labs(x = '', y = 'Total Polution (μg/m³)', title='Forecasting of Air Quality using ARIMA', subtitle='Indicators: NO2, O3, PM10, SO2, CO, PM25') +
+  scale_y_continuous(breaks = seq(0,250,50), lim = c(0,250))
+```
+
+# Conclusions
